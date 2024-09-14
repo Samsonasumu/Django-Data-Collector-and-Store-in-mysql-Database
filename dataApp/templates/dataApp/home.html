@@ -1,15 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My App Homepage</title>
-</head>
-<body>
-    <nav>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'user_details' %}">Users</a>
-        <a href="{% url 'group_details' %}">Groups</a>
-    </nav>
+  <title>Vihiga County</title>
+  {% load static %}
 
-    <h1>Welcome to My App!</h1>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+  
+</head>
+
+<body>
+<nav>
+<a href="{% url 'home' %}">Home</a>
+<a href="{% url 'user_details' %}">Users</a>
+<a href="{% url 'group_details' %}">Groups</a>
+</nav>
+<div class="hom">   
+  <h1> Youth Dataset Collection App   </h1>
+  <p>Your voice matters. Contribute to a valuable dataset that will 
+    inform policies and initiatives for Vihiga's youth."</p>
+ <h2>Contribute to Vihiga's Youth Development"</h2>
+   <h3>"Join our community and share your valuable data. </h3>
+   <ul>
+    <li>Easy-to-use interface</li>
+    <li>Secure data collection</li>
+    <li>Anonymous submissions</li>
+    <li>Impactful contributions</li>
+  </ul>
+</div>
+
+
+
+<div class="ContactAbout">
+    <h2>About Us</h2>
+    <p>Vihiga County, with its headquarters in Mbale, is located in the Western Region of Kenya.
+       It borders Nandi to the East, Kisumu County to the South, Siaya County to the West, 
+       and Kakamega County to the North.</p>
+    <h2>Contact Us</h2>
+    
+    <ul>
+        <li>Toll Free Line: 0800720378</li>
+        <li>Address: P.O. Box 344 - 50300</li>
+        <li>Email: communications@vihiga.go.ke</li>
+        <li>Email: info@vihiga.go.ke</li>
+        <li>Location: Mbale Town, Vihiga County- Kenya</li>
+    </ul>
+</div>
+
+<div style="position: relative; height: 50px; background-color: lightblue;">
+  <div style="position: absolute; bottom: 40px; right: 13px; background-color: yellow;">
+     Thanks for shairing your details
+  </div>
+  <footer>
+      &copy; 2024 Vihiga County. All rights reserved.
+    </footer>
+</div>
+
+  
 </body>
+
+
 </html>

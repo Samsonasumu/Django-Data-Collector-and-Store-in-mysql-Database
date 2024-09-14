@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import UserDetailsForm, GroupDetailsForm
 
+from django.http import HttpResponse
+ 
+
 def user_details_view(request):
     if request.method == 'POST':
         form = UserDetailsForm(request.POST)
@@ -23,6 +26,9 @@ def group_details_view(request):
             if form.is_valid():
                 form.save()
                 return redirect('success')
+
+            else:
+                return render(request, 'dataApp/group_details.html', {'form': form})
         else:
             form = GroupDetailsForm()
             return render(request, 'dataApp/group_details.html', {'form': form})
