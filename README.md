@@ -24,7 +24,8 @@ This will download the project's code into a directory named mysite.
 Navigate to Project Directory:
 
 ```
-cd mysite
+cd Django-Data-Collector-and-Store-in-mysql-Database.git
+
 ```
 
 Use code with caution.
