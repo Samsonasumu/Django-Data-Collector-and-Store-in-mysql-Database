@@ -5,6 +5,8 @@
     {% load static %}
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
    <link rel="stylesheet" href="{% static 'css/user.css' %}">
+   <link rel="stylesheet" href="{% static 'css/popup.css' %}">
+
 
 </head>
 <body>
@@ -14,20 +16,30 @@
         </nav>
 
 
-    <h1>Individual Profiling</h1>
+    <h1>Individual Biodata</h1>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <input class="btn btn-success" type="submit" value="Submit">
     </form>
 
+    <section>
+        <h4> Your information is kept secure</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, assumenda.</p>
+        <p>Lorem ipsum dolor sit.</p>
+    </section>
+
+     
+<button onclick="showDataProtectionStatement()">View Data Protection Statement</button>
+<script src="{% static 'popup.js' %}"></script>
+
+
     <div style="position: relative; height: 50px; background-color: lightblue;">
         <div style="position: absolute; bottom: 40px; right: 13px; background-color: yellow;">
-           Thanks for shairing your details
-        </div>
+         </div>
         <footer>
             &copy; 2024 Vihiga County. All rights reserved.
-          </footer>
+          </footer> 
       </div>
    
 </body>

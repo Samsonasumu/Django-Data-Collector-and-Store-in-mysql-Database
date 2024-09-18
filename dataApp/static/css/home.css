@@ -1,99 +1,184 @@
 
 body {
   
-  background-image: url("{% static 'images/vhiga_logo.jpg' %}");
   background-size: cover;
   background-repeat: no-repeat;
+  background: linear-gradient(to top, rgba(0,0,0, 0.5)50%, url('images/vhiga_logo.jpg'));
+  background-color: wheat;
   background-size: 50%;  /* Change the size to 50% */
-  
-background-position: center;  /* Center the image */
-background-attachment: fixed;  /* Make the image fixed to the viewport */
-background-blend-mode: multiply;  /* Apply a blend mode for a different effect */
+    
+  background-position: center;  /* Center the image */
+  background-attachment: fixed;  /* Make the image fixed to the viewport */
+  background-blend-mode: multiply;  /* Apply a blend mode for a different effect */
+  }
+.hom {
+  justify-content: center;
+  margin: 40px;
+
 }
 
 .hom h1 {
-  font-family: Arial, Helvetica, sans-serif;
-  justify-content: center;
-
-  margin: 0;
-  padding: 0;
-}
-/* styles.css */
-
-.hom ul {
-  justify-content: center;
-  font-size: 1px;
-}
-
-/* Reset styles to ensure consistency across browsers */
-html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+  
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-}
- 
-/* Navigation bar */
-nav {
-    background-color: #333;
-    padding: 10px;
+  }
+  /* styles.css */
+  
+  
+.hom, ul, li  {
     justify-content: center;
+    font-size: 20px;
+  }
+  
+  /* Reset styles to ensure consistency across browsers */
+
+html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+  }
+
+
+footer {
+    /* Styles for footer */
     text-align: center;
-}
+    padding: 10px;
+    background-color: #f2f2f2;
+  }
+  /* Navigation bar */
+
+nav {
+      background-color: #333;
+      padding: 10px;
+      justify-content: center;
+      text-align: center;
+   }
+  
 
 nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    display: inline-block;
-}
-
- 
-nav a:hover {
-    background-color: #444;
-}
-
-/* Heading */
-
-h1 {
-    text-align: center;
-    margin: 20px 0;
- }
-
-
-.ContactAbout {
-    margin: 2px auto;  /* Add margin for spacing */
-    padding: 10px;  /* Add padding for content area */
-    border: 1px solid #ddd;  /* Add a border */
-    border-radius: 5px;  /* Add rounded corners */
-    max-width: 90%;  /* Set a maximum width */
-    background-color: #f5f5f5;  /* Add a background color         */ 
-
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      display: inline-block;
   }
-
-  .ContactAbout h2 {
-    margin-bottom: 15px;  /* Add space below headings */
+  
+   
+  nav a:hover {
+      background-color: #444;
+  }
+  
+  /* Heading */
+  
+  h1 {
+      text-align: center;
+      margin: 20px 0;
+   }
+  
+  .about1 {
     display: flex;
+  }
 
+.about1 {
+  margin-bottom: 5%;
+}
+  
+  img {
+    height: 400px;
+   width: 200px;
+  }
+  .ContactAbout1 {
+      margin: 2px auto;  /* Add margin for spacing */
+      padding: 10px;  /* Add padding for content area */
+      border: 1px solid #ddd;  /* Add a border */
+      border-radius: 5px;  /* Add rounded corners */
+      max-width: 100%;  /* Set a maximum width */
+      background-color: #f5f5f5;  /* Add a background color         */ 
+     }
+      
+    .ContactAbout h2 {
+      margin-bottom: 15px;  /* Add space below headings */
+      display: flex;
+  
+    }
+
+@media (max-width: 768px) {
+      h1, h2, h3 {
+        font-size: 1.5rem; /* Adjust font size for smaller screens */
+      }
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none; /* Remove default list style for better styling */
+      }
+      li {
+        margin: 10px 0; /* Add spacing between list items */
+      }
+      .ContactAbout1 {
+        /* Apply responsive styles to the About Us and Contact Us section */
+        color: black;
+        height: 550px;
+        width: 800px;
+        
+      }
+      .ContactAbout1, p, h2, h3 {
+        font-size: 1.5rem; /* Adjust font size for smaller screens */
+      }
+      .about1 {
+        display: grid;
+      }
+      img {
+          height: 200px;
+         width: 100px;
+        }
+      .hom ul {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 45px;
+      }
+      
+    }
+
+
+    main {
+      padding: 20px;
+  }
+  
+  .welcome {
+      text-align: center;
+  }
+  
+  .flex-grid {
+    display: inline-block;
+    flex-wrap: wrap;
+   justify-content: space-between;
+  }
+  
+  .grid-item {
+      width: 30%;
+      display: inline-block;
+
+      margin-bottom: 20px;
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+  }
+  
+  .grid-item img {
+      width: 100%;
+  }
+  
+  footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333;
+      color: white;
   }
 
 
 
-
-
-  @media (max-width: 768px) {
-    h1, h2, h3 {
-      font-size: 1.5rem; /* Adjust font size for smaller screens */
-    }
-    ul {
-      padding: 0;
-      margin: 0;
-      list-style: none; /* Remove default list style for better styling */
-    }
-    li {
-      margin: 10px 0; /* Add spacing between list items */
-    }
-    .ContactAbout {
-      /* Apply responsive styles to the About Us and Contact Us section */
-      color: blue;
-    }
-  }
+.contribute {
+  justify-content: center;
+  margin: 10px;
+  color: blue;
+}

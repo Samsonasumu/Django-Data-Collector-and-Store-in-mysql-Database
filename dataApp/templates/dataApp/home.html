@@ -4,9 +4,10 @@
   <title>Vihiga County</title>
   {% load static %}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <link rel="stylesheet" href="{% static 'css/home.css' %}">  
 
-  
+
 </head>
 
 <body>
@@ -15,12 +16,14 @@
 <a href="{% url 'user_details' %}">Users</a>
 <a href="{% url 'group_details' %}">Groups</a>
 </nav>
+
+
 <div class="hom">   
-  <h1> Youth Dataset Collection App   </h1>
+  <h1> Dataset Collection App </h1>
   <p>Your voice matters. Contribute to a valuable dataset that will 
     inform policies and initiatives for Vihiga's youth."</p>
- <h2>Contribute to Vihiga's Youth Development"</h2>
-   <h3>"Join our community and share your valuable data. </h3>
+ <h2>Contribute to Vihiga's Economic Development</h2>
+   <h3>Join our community and share your valuable data. </h3>
    <ul>
     <li>Easy-to-use interface</li>
     <li>Secure data collection</li>
@@ -29,13 +32,38 @@
   </ul>
 </div>
 
+<div class="contribute">  
+<h1>contribute by filling the forms on Individual and Group profiling</h1>
+ </div> 
+ 
+ <section class="welcome">
+      <h2>Welcome to Our County</h2>
+      <p>Discover essential services and information about our county.</p>
+      <div class="flex-grid">
+          <div class="grid-item">
+              <img src="static/images/vhiga_logo.jpg" alt="Image 1">
+              <h3>Service 1</h3>
+              <p>Description of Service 1</p>
+          </div>
+          <div class="grid-item">
+              <img src="static/images/vhiga_logo.jpg" alt="Image 2">
+              <h3>Service 2</h3>
+              <p>Description of Service 2</p>
+          </div>
+          <div class="grid-item">
+              <img src="static/images/vhiga_logo.jpg" alt="Image 3">
+              <h3>Service 3</h3>
+              <p>Description of Service 3</p>
+          </div>
+      </div>
+  </section>
 
 
-<div class="ContactAbout">
+<div class="about1"> 
+<div class="ContactAbout1">
     <h2>About Us</h2>
     <p>Vihiga County, with its headquarters in Mbale, is located in the Western Region of Kenya.
-       It borders Nandi to the East, Kisumu County to the South, Siaya County to the West, 
-       and Kakamega County to the North.</p>
+       It borders Nandi to the East.</p>
     <h2>Contact Us</h2>
     
     <ul>
@@ -47,17 +75,28 @@
     </ul>
 </div>
 
+<div class="ContactAbout1">
+  <h2>About the app</h2>
+  <p>Lorem ipsum dolor sit amet consectetur.</p>
+  <h2>Lorem, ipsum dolor.</h2>
+ 
+  <ul>
+      <li>Department  of  Youth and sports</li>
+      <li>Ministry of Sports</li>
+      
+  </ul>
+</div>
+
+</div>
+
+
 <div style="position: relative; height: 50px; background-color: lightblue;">
   <div style="position: absolute; bottom: 40px; right: 13px; background-color: yellow;">
-     Thanks for shairing your details
   </div>
-  <footer>
+    <footer>
       &copy; 2024 Vihiga County. All rights reserved.
     </footer>
 </div>
 
-  
 </body>
-
-
 </html>
