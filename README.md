@@ -47,3 +47,8 @@ python manage.py runserver
 ```
 
 This will start Django's built-in development server, typically accessible at http://127.0.0.1:8000/ (the exact port number might vary depending on your configuration).
+
+
+
+![image](https://github.com/user-attachments/assets/08c38e9a-28dc-4443-9aac-3cd8e642d113)
+
