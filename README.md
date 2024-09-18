@@ -15,7 +15,7 @@ Clone the Repository:
 
 Bash
 ```
-git clone https://github.com/Samsonasumu/mysite.git
+git clone https://github.com/Samsonasumu/Django-Data-Collector-and-Store-in-mysql-Database.git
 ```
 
  
