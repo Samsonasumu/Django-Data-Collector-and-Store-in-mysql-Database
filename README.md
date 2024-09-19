@@ -2,6 +2,19 @@
 # Data collector app
 
 Introduction
+Description:
+
+ Data collector app is a Django web application designed to collect and store data from users and groups. It provides a user-friendly form for individuals to enter their personal, geographical, educational, and academic qualifications. The collected data is securely stored in a MySQL database.
+
+Key Features:
+
+User registration and login
+Data collection form for users and groups
+Secure data storage in a MySQL database
+Privacy statement to ensure data protection
+Homepage showcasing services and contact details
+Installation:
+
 
 This project, mysite, is a Django web application  
 Prerequisites
