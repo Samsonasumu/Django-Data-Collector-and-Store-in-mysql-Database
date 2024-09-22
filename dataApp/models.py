@@ -190,7 +190,6 @@ class UserDetails(models.Model):
     business_sector = models.CharField(max_length=255, choices=BUSINESS_SECTOR_CHOICES)
     Are_you_registerd = models.CharField(max_length=200, choices=[('yes', 'Yes'), ('no', 'No')])
     Registration_number = models.CharField(max_length=200, unique=True)
-
     agrees_to_data_protection = models.BooleanField(default=False)
 
 
@@ -312,11 +311,11 @@ class GroupDetails(models.Model):
       ('ngaff', 'NGAAF')])
 
 
-    number_of_members = models.IntegerField(default=0)
-    members_male = models.IntegerField(default=0)
-    members_female = models.IntegerField(default=0)
-    members_18_35 = models.IntegerField(default=0)
-
+    number_of_members = models.PositiveIntegerField(default=0)
+    members_male = models.PositiveIntegerField(default=0)
+    members_female = models.PositiveIntegerField(default=0)
+    members_18_35 = models.PositiveIntegerField(default=0)
+    List_of_group_members =  models.TextField(blank=True, null=True)
     agrees_to_data_protection = models.BooleanField(default=False)
 
 

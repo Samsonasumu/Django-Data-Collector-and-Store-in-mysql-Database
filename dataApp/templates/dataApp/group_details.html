@@ -22,25 +22,23 @@
         {% csrf_token %}
         {{ form.as_p }}
         <input class="btn btn-success" type="submit" value="Submit">
-    </form>
-    
-    <div class="upload_list">
-        <h4>Upload the list of all members to abc@gmail.com </h4>
-    </div>
+    </form>   
 
      
 <button onclick="showDataProtectionStatement()">View Data Protection Statement</button>
 <script src="{% static 'popup.js' %}"></script>
 
 
-    <div style="position: relative; height: 50px; background-color: lightblue;">
+
+
+
+     <div style="position: relative; height: 50px; background-color: lightblue;">
         <div style="position: absolute; bottom: 40px; right: 13px; background-color: yellow;">
-           Thanks for shairing your details
-        </div>
+         </div>
         <footer>
             &copy; 2024 Vihiga County. All rights reserved.
           </footer>
     </div>
-
+ 
 </body>  
 </html>

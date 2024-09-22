@@ -19,7 +19,8 @@ def success_view(request):
 
 def home_view(request):
     return render(request, 'dataApp/home.html')
-
+ 
+ 
 def group_details_view(request):
         if request.method == 'POST':
             form = GroupDetailsForm(request.POST)
