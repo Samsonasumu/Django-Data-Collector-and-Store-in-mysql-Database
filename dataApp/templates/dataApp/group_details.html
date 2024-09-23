@@ -24,11 +24,23 @@
         <input class="btn btn-success" type="submit" value="Submit">
     </form>   
 
-     
-<button onclick="showDataProtectionStatement()">View Data Protection Statement</button>
-<script src="{% static 'popup.js' %}"></script>
 
+    <button id="show-data-protection" style="background-color: blue; color: white;">Show Data Protection Statement</button>
+    <script>
+      const showButton = document.getElementById('show-data-protection');
+      const popupUrl = "{% url 'data_protection_statement' %}"; // Replace with your URL if using a view function
+    
+      showButton.addEventListener('click', () => {
+        window.open(popupUrl, '_blank'); // This opens the statement in a new tab/window
+      });
+    </script>
 
+    <h3>Secure and mobile responsive app </h3>
+    <h4> Social Media Links: If applicable, provide links to your social media profiles.  </h4>
+
+    <h4>Privacy Policy: Link to your privacy policy to ensure transparency and compliance.</h4>
+
+    <h4>Terms of Service: Link to your terms of service to outline user rights and responsibilities </h4>
 
 
 

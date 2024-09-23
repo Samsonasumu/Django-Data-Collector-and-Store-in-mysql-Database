@@ -3,6 +3,11 @@ from .forms import UserDetailsForm, GroupDetailsForm
 
 from django.http import HttpResponse
  
+ 
+def data_protection_statement(request):
+  context = {}
+  return render(request, 'dataApp/data_protection_statement.html', context)
+
 
 def user_details_view(request):
     if request.method == 'POST':

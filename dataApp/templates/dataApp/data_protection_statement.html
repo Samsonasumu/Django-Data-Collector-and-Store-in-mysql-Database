@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Protection Statement</title>
+  <style>
+    /* Add your desired styles for the popup here */
+  </style>
+</head>
+<body>
+
+    <nav></nav>
+        <a href="{% url 'home' %}">Home</a>
+         <a href="{% url 'group_details' %}">Groups</a>
+  </nav>
+  <h1>Data Protection Statement</h1>
+  <p>
+    Your privacy is important to us. Here's our data protection statement:
+    <br>
+
+    <h3>1. Information We Collect</h3>
+
+    We collect the following personal information from users:
+    <ul>
+      <li>Geographical information</li>
+      <li>Academic information</li>
+      <li>Personal information</li>
+    </ul>
+
+    <h3>2. How We Use Your Information</h3>
+
+    We use the information we collect to:
+
+    <ul>
+      <li>Provide and improve our services</li>
+      <li>Process your requests and applications</li>
+      <li>Communicate with you about our services and important updates</li>
+      <li>Analyze user trends and behavior to improve our app</li>
+      <li>Comply with legal and regulatory requirements</li>
+    </ul>
+
+    <h3>3. Data Sharing and Disclosure</h3>
+
+    We will not share or sell your personal information to third parties without your consent, except in the following cases:
+
+    <ul>
+      <li>To comply with legal or regulatory requirements</li>
+      <li>To protect the rights, safety, or property of ourselves or others</li>
+      <li>To provide services on our behalf (e.g., data storage)</li>
+    </ul>
+
+    <h3>Our Data Protection Practices</h3>
+
+    <ol>
+      <li>
+        <h3>Data Security</h3>
+        We take reasonable steps to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no internet transmission or electronic storage is completely secure.
+      </li>
+      <li>
+        <h3>Data Retention</h3>
+        We will retain your personal information for as long as necessary to fulfill the purposes for which it was collected, or as required by law.
+      </li>
+      <li>
+        <h3>Your Rights</h3>
+        You have the right to access, correct, or delete your personal information. You can also withdraw your consent to the processing of your personal information.
+      </li>
+      <li>
+        <h3>Children's Privacy</h3>
+        Our app is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13.
+      </li>
+      <li>
+        <h3>Changes to this Statement</h3>
+        We may update this Data Protection Statement from time to time. We will notify you of any changes by posting the new Data Protection Statement on our app.
+      </li>
+      <li>
+        <h3>Contact Us</h3>
+        If you have any questions about this Data Protection Statement, please contact us at [abc@gmail.com].
+      </li>
+    </ol>
+
+    **Users must agree to the Data Protection Policy before using the app.**
+
+    **Consent:**
+
+    I, the undersigned, hereby authorize and consent to Vihiga county and/or its appointed agents using my personal data to conduct the Background and/or Reference Checks set out in this Form, and for the said purposes. I confirm that I have provided my consent voluntarily.
+  </p>
+  <button id="close-popup">Close</button>
+  <script>
+    const closeButton = documentgetElementById('close-popup');
+    closeButton.addEventListener('click', () => {
+      window.close(); // This will close the popup window
+    });
+  </script>
+</body>
+</html>
