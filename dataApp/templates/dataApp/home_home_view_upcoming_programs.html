@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>  
+  <head>
+    <h2>Upcoming Programs</h2>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/upcoming.css' %}">  
+   </head>
+
+  <body>
+    <div class="programs-container">
+      <ul>
+        {% for program in upcoming_programs %}
+          <li class="program-item">
+            <h3>{{ program.title }}</h3>
+            <p>{{ program.description }}</p>
+            <p>{{ program.created_at }}</p>
+
+            <div class="program-actions">
+              {% if program.pdf_file %}
+                <a href="{{ program.pdf_file.url }}" target="_blank">Download PDF</a>
+              {% endif %}
+
+              {% if program.video_url %}
+                <a href="{{ program.video_url }}" target="_blank">Watch Video</a>
+              {% endif %}
+
+              {% if program.photo %}
+                <img src="{{ program.photo.url }}" alt="{{ program.title }}">
+              {% endif %}
+            </div>
+
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

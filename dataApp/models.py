@@ -29,8 +29,6 @@ class UserDetails(models.Model):
     has_passport = models.CharField(max_length=3, choices=[('yes', 'Yes'), ('no', 'No')])
 
     
-    
-    
     sub_county = models.CharField(max_length=255, choices=[('Sabatia','Sabatia'), ('Vihiga','Vihiga'),
      ('Luanda', 'Luanda'), ('Emuhaya', 'Emuhaya'),('Tiriki West','Tiriki West'),('Tiriki East','Tiriki East')])  # Add a default value (empty string)
     
@@ -41,8 +39,8 @@ class UserDetails(models.Model):
                                                         ('Muhudu Ward', 'Muhudu Ward'), 
                                                         ('Tambua Ward', 'Tambua Ward'), 
                                                         ('Jepkoyai Ward', 'Jepkoyai Ward'), 
-                                                        ('Lyaduywa/Izava Ward', 'Lyaduywa/Izava Ward'), 
-                                                        ('Sabatia West Ward', 'Sabatia West Ward'), 
+                                                        ('Izava-Lyaduywa Ward', 'Izava-Lyaduywa Ward'), 
+                                                        ('West Sabatia Ward', 'West Sabatia Ward'), 
                                                         ('Chavakali Ward', 'Chavakali Ward'), 
                                                         ('North Maragoli Ward', 'North Maragoli Ward'), 
                                                         ('Busali Ward', 'Busali Ward'), 
@@ -56,9 +54,9 @@ class UserDetails(models.Model):
                                                         ('Wemilabi Ward', 'Wemilabi Ward'), 
                                                         ('Emabungo Ward', 'Emabungo Ward'), 
                                                         ('Mungoma Ward', 'Mungoma Ward'), 
-                                                        ('Maragoli Central Ward', 'Maragoli Central Ward'), 
+                                                        ('Central Maragoli Ward', 'Central Maragoli Ward'), 
                                                         ('Lugaga/Wamuluma Ward', 'Lugaga/Wamuluma Ward'), 
-                                                        ('Maragoli South Ward', 'Maragoli South Ward')])
+                                                        ('South Maragoli Ward', 'South Maragoli Ward')])
     location = models.CharField(max_length=255, default="")  # Add a default value (empty string)
     sub_location = models.CharField(max_length=255, default="")  # Add a default value (empty string)
     village = models.CharField(max_length=255, default="")  # Add a default value (empty string)
@@ -115,17 +113,7 @@ class UserDetails(models.Model):
      
     current_county_of_residence = models.CharField(max_length=255, choices=COUNTY_CHOICES)
 
-    highest_education_level = models.CharField(
-        max_length=20,
-        choices=(
-            ('UNIVERSITY_DEGREE', 'University Degree'),
-            ('FORM_FOUR_KCSE', 'Form Four KSCE Certificate'),
-            ('DIPLOMA', 'Diploma'),
-            ('CERTIFICATE', 'Certificate'),
-            ('KCPE', 'KCPE'),
-            ('MASTERS', 'Masters'),
-        ), blank = True
-    )
+    
     # Profession Details
     professional_Qualification = models.CharField(max_length=50, choices=(
         ('NURSE', 'Nurse'),
@@ -148,19 +136,29 @@ class UserDetails(models.Model):
         ('OTHER', 'Other'),
     ), blank = False)
 
-    talent = models.CharField(max_length=200)
-    additional_skills = models.CharField(max_length=200)
-    occupation = models.CharField(max_length=200)
-    name_of_employer = models.CharField(max_length=200)
-
+    highest_education_level = models.CharField(
+        max_length=20,
+        choices=(
+            ('UNIVERSITY_DEGREE', 'University Degree'),
+            ('FORM_FOUR_KCSE', 'Form Four KSCE Certificate'),
+            ('DIPLOMA', 'Diploma'),
+            ('CERTIFICATE', 'Certificate'),
+            ('KCPE', 'KCPE'),
+            ('MASTERS', 'Masters'),
+        ), blank = True
+    )
     field_of_study = models.CharField(max_length=100, blank=True)
     area_of_specialization = models.CharField(max_length=100, blank=True)
     institution = models.CharField(max_length=100, blank=True)
     graduation_year = models.IntegerField(blank=True, null=True, default="2021")
+    additional_skills = models.CharField(max_length=200)
+
+    talent = models.CharField(max_length=200)
+    occupation = models.CharField(max_length=200)
+    name_of_employer = models.CharField(max_length=200)
+
+
     #relevant_certifications = models.FileField(upload_to='documents/', default="")
-
-    
-
 
     Belong_to_Any_Group = models.CharField(max_length=3, choices=[('yes', 'Yes'), ('no', 'No')])
     group_name = models.CharField(max_length=200)
@@ -190,7 +188,8 @@ class UserDetails(models.Model):
     business_sector = models.CharField(max_length=255, choices=BUSINESS_SECTOR_CHOICES)
     Are_you_registerd = models.CharField(max_length=200, choices=[('yes', 'Yes'), ('no', 'No')])
     Registration_number = models.CharField(max_length=200, unique=True)
-    agrees_to_data_protection = models.BooleanField(default=False)
+     #a I_have_read_understood_and_agreed_to_submit_my_information_as_per_the_data_protection_statement 
+    #I_have_read_understood_and_agreed_to_submit_my_information_as_per_the_data_protection_statement = models.BooleanField(default=False)
 
 
 
@@ -233,8 +232,8 @@ class GroupDetails(models.Model):
                                                         ('Muhudu Ward', 'Muhudu Ward'), 
                                                         ('Tambua Ward', 'Tambua Ward'), 
                                                         ('Jepkoyai Ward', 'Jepkoyai Ward'), 
-                                                        ('Lyaduywa/Izava Ward', 'Lyaduywa/Izava Ward'), 
-                                                        ('Sabatia West Ward', 'Sabatia West Ward'), 
+                                                        ('Izava-Lyaduywa Ward', 'Izava-Lyaduywa Ward'), 
+                                                        ('West Sabatia Ward', 'West Sabatia Ward'), 
                                                         ('Chavakali Ward', 'Chavakali Ward'), 
                                                         ('North Maragoli Ward', 'North Maragoli Ward'), 
                                                         ('Busali Ward', 'Busali Ward'), 
@@ -248,9 +247,9 @@ class GroupDetails(models.Model):
                                                         ('Wemilabi Ward', 'Wemilabi Ward'), 
                                                         ('Emabungo Ward', 'Emabungo Ward'), 
                                                         ('Mungoma Ward', 'Mungoma Ward'), 
-                                                        ('Maragoli Central Ward', 'Maragoli Central Ward'), 
+                                                        ('Central Maragoli Ward', 'Central Maragoli Ward'), 
                                                         ('Lugaga/Wamuluma Ward', 'Lugaga/Wamuluma Ward'), 
-                                                        ('Maragoli South Ward', 'Maragoli South Ward')])
+                                                        ('South Maragoli Ward', 'South Maragoli Ward')])
     location = models.CharField(max_length=255, default="")  # Add a default value (empty string)
     sub_location = models.CharField(max_length=255, default="")  # Add a default value (empty string)
     village = models.CharField(max_length=255, default="")  # Add a default value (empty string)
@@ -307,17 +306,34 @@ class GroupDetails(models.Model):
 
     are_you_beneficiary_of_any_empowerment_fund = models.CharField(max_length=200, 
     choices=[('youth enterprise development fund', 'Youth enterprise development fund'),
-     ('uwezo fund', 'Uwezo fund'),
-      ('ngaff', 'NGAAF')])
+     ('uwezo fund', 'Uwezo fund'), ('ngaff', 'NGAAF'),  ('other', 'other')
+     ])
 
 
     number_of_members = models.PositiveIntegerField(default=0)
     members_male = models.PositiveIntegerField(default=0)
     members_female = models.PositiveIntegerField(default=0)
+    total_members_with_disability = models.PositiveIntegerField(default=0)
+
     members_18_35 = models.PositiveIntegerField(default=0)
-    List_of_group_members =  models.TextField(blank=True, null=True)
-    agrees_to_data_protection = models.BooleanField(default=False)
+    Name_and_phone_number_of_group_members =  models.TextField(blank=True, null=True)
+    #agrees_to_data_protection = models.BooleanField(default=False)
+    #I_have_read_understood_and_agreed_to_submit_my_information_as_per_the_data_protection_statement = models.BooleanField(default=False)
+
 
 
     def __str__(self):
         return self.group_name
+
+
+from django.utils import timezone
+
+class UpcomingProgram(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    pdf_file = models.FileField(upload_to='static/', blank=True, null=True)
+    video_url = models.URLField(blank=True, default="")  # Ensure valid URL format
+    photo = models.ImageField(upload_to='static/', blank=True)
+    created_at = models.DateTimeField(default=timezone.now)
+       
+ 

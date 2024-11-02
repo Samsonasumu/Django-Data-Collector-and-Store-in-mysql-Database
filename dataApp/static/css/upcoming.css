@@ -1,0 +1,52 @@
+.h2 {
+    color: aqua;
+    justify-content: center;
+    font-size: 63px;
+    
+  }
+  .program-actions {
+    display: flex;
+    font-size: 40px;
+    margin: 0;
+    padding-left: 23px;
+  }
+
+  .programs-container {
+    display: flex; /* Set the container to flexbox */
+    flex-wrap: wrap; /* Allow items to wrap onto new lines */
+    justify-content: space-between;
+    background-color: yellowgreen;
+    margin: 0; /* Remove default margin for better layout */
+  }
+
+  .program-item {
+    flex: 1 0 33.33%; /* Set items to take 1/3 of available space */
+    margin: 10px; /* Add spacing between items */
+    border: 1px solid #ddd; /* Optional border for styling */
+    padding: 10px; /* Optional padding for content */
+  }
+
+  .programs-container ul {
+list-style: none; /* Remove default bullet points */
+padding: 0;
+margin: 0;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+.programs-container li {
+flex: 1 0 30%; /* Set items to take 30% of available space */
+margin: 10px;
+}
+
+
+@media (max-width: 768px) {
+ 
+    .program-actions {
+        display: grid;
+        font-size: 299px;
+        padding-left: 23px;
+      }
+    
+}
