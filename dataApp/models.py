@@ -150,7 +150,8 @@ class UserDetails(models.Model):
     field_of_study = models.CharField(max_length=100, blank=True)
     area_of_specialization = models.CharField(max_length=100, blank=True)
     institution = models.CharField(max_length=100, blank=True)
-    graduation_year = models.IntegerField(blank=True, null=True, default="2021")
+    graduation_year = models.IntegerField(blank=True, null=True, default=2021)
+    #graduation_year = models.IntegerField(blank=True, null=True, default="2021")
     additional_skills = models.CharField(max_length=200)
 
     talent = models.CharField(max_length=200)
@@ -189,7 +190,8 @@ class UserDetails(models.Model):
     Are_you_registerd = models.CharField(max_length=200, choices=[('yes', 'Yes'), ('no', 'No')])
     Registration_number = models.CharField(max_length=200, unique=True)
      #a I_have_read_understood_and_agreed_to_submit_my_information_as_per_the_data_protection_statement 
-    #I_have_read_understood_and_agreed_to_submit_my_information_as_per_the_data_protection_statement = models.BooleanField(default=False)
+    #I_have_read_and_agreed_to_submit_my_information_per_the_data_protection_statement = models.BooleanField(default=False)
+    I_have_read_and_agreed_to_data_privacy_terms = models.BooleanField(default=False)
 
 
 
@@ -318,7 +320,8 @@ class GroupDetails(models.Model):
     members_18_35 = models.PositiveIntegerField(default=0)
     Name_and_phone_number_of_group_members =  models.TextField(blank=True, null=True)
     #agrees_to_data_protection = models.BooleanField(default=False)
-    #I_have_read_understood_and_agreed_to_submit_my_information_as_per_the_data_protection_statement = models.BooleanField(default=False)
+    #I_have_read_and_agreed_to_submit_my_information_per_the_data_protection_statement = models.BooleanField(default=False)
+    I_have_read_and_agreed_to_data_privacy_terms = models.BooleanField(default=False)
 
 
 

@@ -8,7 +8,6 @@ from .models import UpcomingProgram
 def home_view(request):
     return render(request, 'dataApp/home.html')
  
- 
 def home_view_upcoming_programs(request):
     upcoming_programs = UpcomingProgram.objects.all().order_by('-id')[:4]  # Get latest 4 programs
     context = {'upcoming_programs': upcoming_programs}

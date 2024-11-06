@@ -7,7 +7,6 @@
   margin: 20px;
 }
 
-
 .col-md-4 {
   flex: 1;
   padding: 10px;
@@ -21,22 +20,21 @@
   padding: 5px;
 }
 
-
 .about-1 h1 {
 text-align: center;
-color: red;
+color: green;
 font-weight: bold;
+font-size: 20px;
 }
 
 
 .about-1 p {
 text-align: center;
 padding: 3px;
-color: #fff; 
+color: black; 
 }
 
 .about-item {
-
   margin-bottom: 20px;
   margin-top: 20px;
   background-color: aqua;
@@ -92,9 +90,6 @@ transition: all 400ms ease-in-out;
 }
 
 
-
-
-
 body {  
   background-size: cover;
   background-repeat: no-repeat;
@@ -132,7 +127,6 @@ html, body {
       font-family: Arial, sans-serif;
   }
 
-
 footer {
     /* Styles for footer */
     text-align: center;
@@ -141,12 +135,36 @@ footer {
   }
   /* Navigation bar */
 
+
+
+
+.contribute2 {
+    margin-bottom: 15px;
+  
+}
+
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  nav {
+      flex-direction: column;
+  }
+
+  nav a {
+      display: block;
+      margin-bottom: 10px;
+  }
+}
+
 nav {
       background-color: #333;
       padding: 10px;
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+
       justify-content: center;
       text-align: center;
-   }
+    }
   
 
 nav a {
@@ -189,48 +207,120 @@ nav a {
       background-color: #f5f5f5;  /* Add a background color         */ 
      }
       
-    .ContactAbout h2 {
+  .ContactAbout h2 {
       margin-bottom: 15px;  /* Add space below headings */
       display: flex;
   
     }
 
 @media (max-width: 768px) {
-      h1, h2, h3 {
-        font-size: 1.5rem; /* Adjust font size for smaller screens */
+      h1 {
+        font-size: 40px; /* Adjust font size for smaller screens */
       }
+
+      .hom h2 {
+        font-size: 35px; /* Adjust font size for smaller screens */
+      }
+      .hom h3 {
+        font-size: 30px;
+        color: red;
+      }
+      .hom p {
+        font-size: 20px;
+      }
+
       ul {
         padding: 0;
+        color: black;
+        justify-content: center;
+
         margin: 0;
         list-style: none; /* Remove default list style for better styling */
       }
       li {
         margin: 10px 0; /* Add spacing between list items */
+        font-size: 20px;
+
       }
       .ContactAbout1 {
         /* Apply responsive styles to the About Us and Contact Us section */
         color: black;
-        height: 550px;
-        width: 800px;
+        height: 300px;
+        width: 400px;
         
       }
+      .ContactAbout1 h2 {
+        font-size: 23px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+
+      .hom, ul, li  {
+        justify-content: center;
+        font-family: Arial, Helvetica, sans-serif;
+
+        font-size: 20px;
+      }
       .ContactAbout1, p, h2, h3 {
-        font-size: 1.5rem; /* Adjust font size for smaller screens */
+        font-size: 10px; /* Adjust font size for smaller screens */
       }
       .about1 {
         display: grid;
       }
       img {
-          height: 200px;
-         width: 100px;
+          height: 150px;
+         width: 70px;
         }
-      .hom ul {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 45px;
+      
+      .row {
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+         justify-content: space-between;
+        align-items: flex-start;
+        margin: 5px;
       }
       
-    }
+      .col-md-4 {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .about-1 {
+        margin: 30px;
+        padding: 5px;
+      }
 
+       
+      .flex-grid {
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+         justify-content: space-between;
+        align-items: flex-start;
+        margin: 5px;
+      }
+       
+      .about-2 h3 {
+        font-size: 44px;
+      }
+      .about-2 p {
+        font-size: 24px;
+      }
+      .about-1, p {
+        font-size: 20px;
+      }
+      .welcome, grid-item{
+        display: grid;
+      }
+      .upcoming #btn-upcoming {
+        color: red;
+        font-size: 18px;
+        padding-top: 23px;
+      }
+       
+
+}
 
     main {
       padding: 20px;
@@ -241,7 +331,7 @@ nav a {
   }
   
   .flex-grid {
-    display: inline-block;
+    display: flex;
     flex-wrap: wrap;
    justify-content: space-between;
   }
@@ -267,14 +357,14 @@ nav a {
       color: white;
   }
 
-
-
 .contribute {
   justify-content: center;
   margin: 10px;
   color: blue;
 }
-
+.contribute h1 {
+  font-size: 24px;
+}
 
 
 .contribute2 .upcoming #btn-upcoming {
@@ -287,4 +377,67 @@ nav a {
   text-decoration: none; /* Remove underline from the link */
   display: block; /* Make the button block-level to center it */
   margin: 0 auto; /* Center the button horizontally */
+}
+
+
+.social-links {
+  text-align: center;
+  padding: 20px;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.social-links h2 {
+  margin-bottom: 15px;
+}
+
+.social-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-links li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.social-links li a img {
+  width: 30px;
+  height: 30px;
+}
+
+
+.welcome {
+  margin: 20px 0;
+}
+
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap; /* Ensures items wrap to a new line on smaller screens */
+  justify-content: space-between; /* Spacers items evenly */
+}
+
+.grid-item {
+  flex: 1 1 30%; /* Ensures equal width for each item */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.grid-item img {
+  max-width: 100%; /* Ensures images don't exceed container width */
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  /* Adjust layout for smaller screens */
+  .grid-item {
+    flex: 1 1 100%; /* Makes each item full width */
+    margin-bottom: 20px;
+  }
+  .flex-grid h3 {
+    font-size: 23px;
+    justify-content: space-between; /* Spacers items evenly */
+  }
 }
