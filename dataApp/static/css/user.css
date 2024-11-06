@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 2rem;
-    background-image: url("{% static 'images/sam.jpg' %}");
+ 
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #d9e0da;

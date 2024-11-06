@@ -6,10 +6,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <link rel="stylesheet" href="{% static 'css/group.css' %}">
-    <link rel="stylesheet" href="{% static 'css/popup.css' %}">
-
-  
+    <link rel="stylesheet" href="{% static 'css/popup.css' %}">  
 </head>
+
 <body>
     <nav>
         <a href="{% url 'home' %}">Home</a>
@@ -23,15 +22,19 @@
         {{ form.as_p }}
         <input class="btn btn-success" type="submit" value="Submit">
     </form>   
+    <button id="show-data-protection" style="background-color: blue; color: white; margin-left: 143px;">Show Data Protection Statement</button>
+    
+     <script>
+      const showButton = document.getElementById('show-data-protection');
+      const popupUrl = "{% url 'data_protection_statement' %}"; // Replace with your URL if using a view function
+    
+      showButton.addEventListener('click', () => {
+        window.open(popupUrl, '_blank'); // This opens the statement in a new tab/window
+      });
+    </script>
 
-     
-<button onclick="showDataProtectionStatement()">View Data Protection Statement</button>
-<script src="{% static 'popup.js' %}"></script>
-
-
-
-
-
+    <h3>Secure and mobile responsive app </h3>
+    <h4> Social Media Links  </h4>
      <div style="position: relative; height: 50px; background-color: lightblue;">
         <div style="position: absolute; bottom: 40px; right: 13px; background-color: yellow;">
          </div>
