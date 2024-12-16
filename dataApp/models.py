@@ -1,5 +1,5 @@
 from django.db import models
-import datetime
+from datetime import datetime
 from django.core.validators import MinValueValidator
 
 
@@ -19,10 +19,10 @@ class UserDetails(models.Model):
 
 
     email = models.EmailField(default="abc@gmail.com", unique=True)
-    DOB = models.DateTimeField(default="2023-01-15")
+    Date_of_Birth = models.DateTimeField(default=datetime(2023, 10, 25))
     age = models.IntegerField(blank=False, null=True, )
-    age_bracket = models.CharField(max_length=100, choices=[('age_0to15', 'age_0to15'),
-     ('age_16to24', 'age_16to24'), ('age_25to34','age_25to34'), ('age_35to44','age_35to44'), ("age_44andabove","age_44andabove")])  
+    age_bracket = models.CharField(max_length=100, choices=[('0-15years', '0-15years'),
+     ('16-24years', '16-24years'), ('25-34years','25-34years'), ('35-44years','35-44years'), ("44years and above","44years and above")])  
    
     contact = models.CharField(max_length=20, default="+254", unique=True)  # Contact information for doctor
     alternative_contact = models.CharField(max_length=20, default="+254",blank=True)  # Contact information for doctor
@@ -191,7 +191,7 @@ class UserDetails(models.Model):
     Registration_number = models.CharField(max_length=200, unique=True)
      #a I_have_read_understood_and_agreed_to_submit_my_information_as_per_the_data_protection_statement 
     #I_have_read_and_agreed_to_submit_my_information_per_the_data_protection_statement = models.BooleanField(default=False)
-    I_have_read_and_agreed_to_data_privacy_terms = models.BooleanField(default=False)
+    I_have_agreed_to_data_privacy_terms = models.BooleanField(default=False)
 
 
 
@@ -222,7 +222,9 @@ class GroupDetails(models.Model):
     any_other_activity = models.CharField(max_length=255, default="", blank=True)  # Provide a default value
     registration_number = models.CharField(max_length=50, unique=True, default="")  # Assuming unique registration numbers
     #year_of_registration = models.IntegerField(default="none")  # Set default to current year
-    year_of_registration = models.IntegerField(default=datetime.date.today().year)  # Set default to current year
+    year_of_registration = models.IntegerField(default=2020)  # Set default to current year
+    #year_of_registration = models.IntegerField(default=datetime.date.today().year)  # Set default to current year
+   
     sub_county = models.CharField(max_length=255, choices=[('Sabatia','Sabatia'), ('Vihiga','Vihiga'),
      ('Luanda', 'Luanda'), ('Emuhaya', 'Emuhaya'),('Tiriki West','Tiriki West'),('Tiriki East','Tiriki East')])  # Add a default value (empty string)
     
@@ -321,7 +323,7 @@ class GroupDetails(models.Model):
     Name_and_phone_number_of_group_members =  models.TextField(blank=True, null=True)
     #agrees_to_data_protection = models.BooleanField(default=False)
     #I_have_read_and_agreed_to_submit_my_information_per_the_data_protection_statement = models.BooleanField(default=False)
-    I_have_read_and_agreed_to_data_privacy_terms = models.BooleanField(default=False)
+    I_have_agreed_to_data_privacy_terms = models.BooleanField(default=False)
 
 
 
@@ -339,4 +341,11 @@ class UpcomingProgram(models.Model):
     photo = models.ImageField(upload_to='static/', blank=True)
     created_at = models.DateTimeField(default=timezone.now)
        
- 
+
+from django.db import models
+
+class Image(models.Model):
+    image = models.ImageField(upload_to='static/images/')
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    link = models.URLField()

@@ -9,8 +9,8 @@
   <body>
     <nav>
       <a href="{% url 'home' %}">Home</a>
-      <a href="{% url 'user_details' %}">Users</a>
-      <a href="{% url 'group_details' %}">Groups</a>
+      <a href="{% url 'user_details' %}">Youth</a>
+      <a href="{% url 'group_details' %}">Youth Groups</a>
     </nav> 
 
     <h2>Upcoming Programs</h2>
@@ -33,7 +33,7 @@
               {% endif %}
 
               {% if program.photo %}
-                <img src="{{ program.photo.url }}" alt="{{ program.title }}">
+                <img src="{{ program.photo.url }}" style="height: 100%; width: 100%;" alt="{{ program.title }}">
               {% endif %}
             </div>
 

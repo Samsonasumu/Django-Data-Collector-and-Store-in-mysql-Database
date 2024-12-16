@@ -10,7 +10,8 @@ urlpatterns = [
     path('success/', views.success_view, name='success'),
     path('group/', views.group_details_view, name='group_details'),
     path('data_protection_statement/', views.data_protection_statement, name='data_protection_statement'),
- 
+    path('image_slider/', views.image_slider, name='image_slider'),
+
     path('', views.home_view, name='home'),
 
 ]

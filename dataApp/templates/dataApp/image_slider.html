@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Slider</title>
+</head>
+<body>
+    <div class="image-container">
+        <img src="{{ current_image.image.url }}" alt="{{ current_image.name }}">
+        <p>{{ current_image.description }}</p>
+        <a href="{{ current_image.link }}">{{ current_image.link }}</a>
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" name="action" value="prev">Previous</button>
+        <button type="submit" name="action" value="next">Next</button>
+    </form>
+</body>
+</html>

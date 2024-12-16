@@ -45,4 +45,26 @@ def group_details_view(request):
             form = GroupDetailsForm()
             return render(request, 'dataApp/group_details.html', {'form': form})
      
-   
+from .models import Image 
+ 
+def image_slider(request):
+    images = Image.objects.all()
+    current_index = 0  # Initialize the current index
+
+    if request.method == 'POST':
+        action = request.POST.get('action')
+        if action == 'prev':
+            current_index = max(0, current_index - 1)
+        elif action == 'next':
+            current_index = min(len(images) - 1, current_index + 1)
+
+    current_image = images[current_index]
+
+    context = {
+        'current_image': current_image,
+        'images': images,
+        'current_index': current_index,
+    }
+
+    return render(request, 'dataApp/image_slider.html', context)   
+    
