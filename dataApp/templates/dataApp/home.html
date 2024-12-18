@@ -4,62 +4,83 @@
   <title>Vihiga County</title>
   {% load static %}
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-   <link rel="stylesheet" href="{% static 'css/home.css' %}">  
+   <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+
+
+ 
 </head>
 
 <body>
-    <nav>
+    <nav style="  font-family: Audiowide, sans-serif; ">
       <a href="{% url 'home' %}">Home</a>
-      <a href="{% url 'user_details' %}">Users</a>
-      <a href="{% url 'group_details' %}">Groups</a>
-      <a href="{% url 'home_view_upcoming_programs' %}">Upcoming Programmes</a>
+      <a href="{% url 'user_details' %}">Youth</a>
+      <a href="{% url 'group_details' %}">Youth Groups</a>
+      <a href="{% url 'home_view_upcoming_programs' %}">Youth Empowerment Programmes</a>
+      <a href="{% url 'sports_details_view' %}">Sports</a>
     </nav>    
-<h1> Directorate of Youth and Sports</h1>
+<h1 style="font-family: Sofia, sans-serif; font-size: 30px;"> Directorate of Youth and Sports</h1>
+
 <div class="hom">
-   <p>Your voice matters. Contribute to a valuable dataset that will 
-    inform policies and initiatives for Vihiga's youth."</p>  
-    <h2>Contribute to Vihiga's Economic Development</h2>
-   <h3>Join our community and share your valuable data. </h3>
-   <ul>
-    <li>Easy-to-use interface</li>
-    <li>Secure data collection</li>
-    <li>Anonymous submissions</li>
-    <li>Impactful contributions</li>
-  </ul>
+  <p>Providing leadership, coordination and an enabling environment for the development of youth through participatory engagements that serve their needs and the society </p>
+   <h3 style="text-align: center;">Our team </h3>
+ </div>
+<div class="photo">
+  <img src="static/images/hom1.jpg"  alt="Image 1">
 </div>
 
+<section class="about100">
+  <h1>ABOUT US</h1>
+    <p>The Directorate of youth and sports is domiciled in the directorate of gender, culture, youth, sports and social services. The Directorate is headed by a Director of Youth and sports. The Directorate coordinates all youth programs in the county including activities of NGO's dealing with youth. The Directorate also ensures there is a database on youth and youth programs, youth leadership framework and inclusion of youth in government.</p>
+    <h3 style="text-align: center; font-size: 23px;">Directorate Leadership </h3>
+<p style="text-align: center;">The Directorate of Youth and Sports, a key department within the County
+   Government, is responsible for overseeing and supporting the development and well-being of the county's youth. 
+   This includes coordinating youth programs, collaborating with NGOs, maintaining a comprehensive youth 
+   database, and promoting youth leadership within the government structure.
+</p>
+<div class="image-section" >
+    <div class="image-box">
+      <img src="static/images/dep2.jpg" alt="Image 1" style="width: 100%; height: auto;" >
+        <p class="caption">Directorate Leadership with members of Vihiga Youth Service Board during their induction </p>
+    </div>
+    <div class="image-box">
+      <img src="static/images/munyora.jpg" alt="Image 2" style="width: 100%; height: auto;">
+      <p class="caption"><i>From left Mr.Munyora Assistant Director Youth Affairs, Mr.Sylvesters Kaane Chief Officer Youth and Sports and Mr. Bongo Ngoseywe Director Youth and Sports</i></p>
+     </div>
 
-<section id="about">
+     <div class="image-box">
+      <img src="static/images/mis.jpg" alt="Image 3" style="width: 100%; height:  323px;">
+      <p class="caption"><i>Vice Chairperson, Vihiga Youth Service Board  Miss Glory Kavaya taking oath of office</i></p>
+     </div>
+ </div>
+</section>
 
-  <div class="about-1">
-      <h1>ABOUT US</h1>
-      <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores voluptatem voluptatibus tempora corporis, sequi nemo dolore magni facilis enim ratione harum! Repellendus,
-           nisi. Aspernatur voluptate tempora, est at saepe beatae.</P>
-  </div>
+<div class="about-2"> 
+    <div class="mission1" style="padding-top: 92px; font-family: Sofia, sans-serif; padding-top: 50px;">   
+      <h3 style="padding-top: 140px;">Mission, Vission and Achievements</h3>
+     </div>
 
-  <div class="about-2">
       <div class="content-box-lg">
           <div class="container">
               <div class="row">
-                  
                   <div class="col-md-4">
                       <div class="about-item text-center">
                           <i class="fa fa-book"></i>
                           <h3>MISSION</h3>
                           <hr>
-                          <p>Lorem ipsum dolor sit Lorem ipsum dolor sit amet adipisicing elit. Quia atque itaque earum, quis eligendi iure consequatur, cum reprehenderit id quasi optio exercitationem 
-                              cumque tempora est soluta ab enim quas nisi.</p>
+                            To promote empowerment of vulnerable groups, social protection and nurtured diverse heritage arts and sports 
+
                       </div>
                   </div>
-
+                  
                   <div class="col-md-4">
                       <div class="about-item text-center">
                           <i class="fa fa-globe"></i>
                           <h3>VISSION</h3>
                           <hr>
-                          <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet  , adipisicing elit. Blanditiis, aspernatur praesentium eos non quibusdam nostrum possimus, iste quidem quaerat laboriosam voluptatem voluptatum accusamus 
-                              deserunt amet! Distinctio corporis veniam mollitia fugit.</p>
-
+                          <p> A vibrant and cohesive society thriving on its cultural diversity, sports ,social protection and empowerment for all</p>
                       </div>
                   </div>
 
@@ -68,7 +89,10 @@
                           <i class="fa fa-pencil"></i>
                           <h3>ACHIEVEMENTS</h3>
                           <hr>
-                          <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet   adipisicing elit. Optio similique facilis, exercitationem ad, repellat in quo doloribus numquam eius deserunt sed, officia fugit labore repudiandae eveniet necessitatibus magni voluptatum sunt!</p>
+                          <ul>Constitution and operationalisation of vihiga county youth service board</ul>
+                          <ul>Appointment and operationalisation of vihiga county sports management committee</ul>
+                          <ul>Support to local sports teams through vihiga county sports fund</ul>
+                          <ul>Training and capacity building of vihiga county youth on digital soft skills</ul>
 
                       </div>
                   </div>
@@ -84,42 +108,36 @@
  <h1>Discover memorable events and information about our county.</h1>
 
  </div> 
- 
  <section class="welcome">
       <div class="flex-grid">
           <div class="grid-item">
               <img src="static/images/diaspora.jpg" alt="Image 1">
-              <h3>Service 1</h3>
-              <p>Description of Service 1</p>
-          </div>
+              <h3>Diaspora jobs</h3>
+           </div>
           
           <div class="grid-item">
-              <img src="static/images/vhiga_logo.jpg" alt="Image 2">
-              <h3>Service 2</h3>
-              <p>Description of Service 2</p>
-          </div>
+              <img src="static/images/talanta.jpg" alt="Image 2">
+              <h3>Talanta Hela</h3>
+           </div>
           
           <div class="grid-item">
-              <img src="static/images/vhiga_logo.jpg" alt="Image 3">
-              <h3>Service 3</h3>
-              <p>Description of Service 3</p>
-          </div>
+              <img src="static/images/inter.jpg" alt="Image 3">
+              <h3>International Youth Day</h3>
+           </div>
       </div>
   </section>
-
 
 <div class="contribute2">  
   <div class="upcoming">  
     <h1>Upcoming Events</h1>
-    https://vihiga.go.ke/
-    <button id="btn-upcoming">  <a href="{% url 'home_view_upcoming_programs' %}">View Youth Upcoming Programs</a>
+     <button id="btn-upcoming"><a href="{% url 'home_view_upcoming_programs' %}">View Youth Upcoming Programs</a>
     </button>
   </div>
 </div>
 
 <div class="about1"> 
 <div class="ContactAbout1">
-    <h2>About Us</h2>
+    <h2>Location </h2>
     <p>Vihiga County, with its headquarters in Mbale, is located in the Western Region of Kenya.
        It borders Nandi to the East.</p>
     <h2>Contact Us</h2>
@@ -127,20 +145,22 @@
     <ul>
         <li>Toll Free Line: 0800720378</li>
         <li>Address: P.O. Box 344 - 50300</li>
-        <li>Email: communications@vihiga.go.ke</li>
-        <li>Email: info@vihiga.go.ke</li>
+        <li>Email: cecmgenderyouthssocialservices@gmail.com</li>
+        <li>Email: vihigadirectoryouthaffairs@mail.com</li>
+        <li>Email: co.sports@gmail.com</li>
         <li>Location: Mbale Town, Vihiga County- Kenya</li>
     </ul>
 </div>
 
 <div class="ContactAbout1">
-  <h2>Department contacts and email</h2>
-  <p>---------------------</p>
-  <h2>Lorem, ipsum dolor.</h2>
-  <ul>
-      <li>Department  of  Youth and sports</li>
-      <li>Ministry of Sports</li>
-  </ul>
+  <h2>Directorate Offices</h2>
+   <ul>
+      <li>County headquarters Municipal Grounds Block 5</li>
+      <li>County headquarters Building Room 207</li>
+      <li>County Commissioner Building Room 314</li>
+      <li>Sub County Offices located at the sub county administrator offices</li>
+ 
+   </ul>
 
 </div>
 </div>
@@ -159,7 +179,7 @@
         </a>
       </li>
       <li>
-        <a href="https://www.facebook.com/vihigacountygov/">
+        <a href="https://web.facebook.com/people/Department-Of-Youth-and-Sports-Vihiga-County/61550850406379/">
           <img src="static/images/fb.png" alt="Facebook logo">
         </a>
       </li>    

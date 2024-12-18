@@ -53,8 +53,12 @@ body {
   }
 
   .program-actions, img {
-  height: 200px;
+  height: 20px;
   width: 150px;
+  max-width: 100%; /* Ensures images don't exceed container width */
+  max-height: 100%; /* Ensures images don't exceed container height */
+
+
   }
   .program-actions, a {
     font-size: 10px;

@@ -1,5 +1,5 @@
 from django.db import models
-import datetime
+from datetime import datetime
 from django.core.validators import MinValueValidator
 
 
@@ -19,10 +19,10 @@ class UserDetails(models.Model):
 
 
     email = models.EmailField(default="abc@gmail.com", unique=True)
-    DOB = models.DateTimeField(default="2023-01-15")
+    Date_of_Birth = models.DateTimeField(default=datetime(2023, 10, 25))
     age = models.IntegerField(blank=False, null=True, )
-    age_bracket = models.CharField(max_length=100, choices=[('age_0to15', 'age_0to15'),
-     ('age_16to24', 'age_16to24'), ('age_25to34','age_25to34'), ('age_35to44','age_35to44'), ("age_44andabove","age_44andabove")])  
+    age_bracket = models.CharField(max_length=100, choices=[('0-15years', '0-15years'),
+     ('16-24years', '16-24years'), ('25-34years','25-34years'), ('35-44years','35-44years'), ("44years and above","44years and above")])  
    
     contact = models.CharField(max_length=20, default="+254", unique=True)  # Contact information for doctor
     alternative_contact = models.CharField(max_length=20, default="+254",blank=True)  # Contact information for doctor
@@ -191,7 +191,7 @@ class UserDetails(models.Model):
     Registration_number = models.CharField(max_length=200, unique=True)
      #a I_have_read_understood_and_agreed_to_submit_my_information_as_per_the_data_protection_statement 
     #I_have_read_and_agreed_to_submit_my_information_per_the_data_protection_statement = models.BooleanField(default=False)
-    I_have_read_and_agreed_to_data_privacy_terms = models.BooleanField(default=False)
+    I_have_agreed_to_data_privacy_terms = models.BooleanField(default=False)
 
 
 
@@ -216,13 +216,13 @@ class GroupDetails(models.Model):
     has_Bank_Account = models.CharField(max_length=3, choices=[('yes', 'Yes'), ('no', 'No')])
     which_bank = models.CharField(max_length=100, default="")
 
-
-    
     main_activity = models.CharField(max_length=255, default="")  # Provide a default value
     any_other_activity = models.CharField(max_length=255, default="", blank=True)  # Provide a default value
     registration_number = models.CharField(max_length=50, unique=True, default="")  # Assuming unique registration numbers
     #year_of_registration = models.IntegerField(default="none")  # Set default to current year
-    year_of_registration = models.IntegerField(default=datetime.date.today().year)  # Set default to current year
+    year_of_registration = models.IntegerField(default=2020)  # Set default to current year
+    #year_of_registration = models.IntegerField(default=datetime.date.today().year)  # Set default to current year
+   
     sub_county = models.CharField(max_length=255, choices=[('Sabatia','Sabatia'), ('Vihiga','Vihiga'),
      ('Luanda', 'Luanda'), ('Emuhaya', 'Emuhaya'),('Tiriki West','Tiriki West'),('Tiriki East','Tiriki East')])  # Add a default value (empty string)
     
@@ -321,7 +321,7 @@ class GroupDetails(models.Model):
     Name_and_phone_number_of_group_members =  models.TextField(blank=True, null=True)
     #agrees_to_data_protection = models.BooleanField(default=False)
     #I_have_read_and_agreed_to_submit_my_information_per_the_data_protection_statement = models.BooleanField(default=False)
-    I_have_read_and_agreed_to_data_privacy_terms = models.BooleanField(default=False)
+    I_have_agreed_to_data_privacy_terms = models.BooleanField(default=False)
 
 
 
@@ -339,4 +339,77 @@ class UpcomingProgram(models.Model):
     photo = models.ImageField(upload_to='static/', blank=True)
     created_at = models.DateTimeField(default=timezone.now)
        
+
+ 
+class Image(models.Model):
+    image = models.ImageField(upload_to='static/images/')
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    link = models.URLField()
+
+
+class SportsDetails(models.Model):
+    name_of_sport = models.CharField(max_length=50, unique=True, default="")   
+    manager = models.CharField(max_length=100,default="" )
+    manager_contact = models.CharField(max_length=100, default="")
+    manager_email = models.EmailField(default="abc@gmail.com")
+    coach = models.CharField(max_length=100, blank=True)  # Optional coach field
+    #sport = models.ForeignKey(Sport, on_delete=models.CASCADE)
+    type = models.CharField(max_length=20, choices=(  # Choices for team type (male, female, mixed)
+        ('M', 'Male'),
+        ('F', 'Female'),
+        ('MX', 'Mixed'),
+    ), default="")
+    registration_number = models.CharField(max_length=20, unique=True, default="")
+    year_founded = models.PositiveIntegerField(blank=True, default=2021)  # Optional year founded 
+    training_ground = models.CharField(max_length=255,default="")
+    number_of_players = models.PositiveIntegerField(default=0)
+    #other_activities = models.TextField(blank=True)  # Optional field for additional activities
+    sub_county = models.CharField(max_length=255, choices=[('Sabatia','Sabatia'), ('Vihiga','Vihiga'),
+     ('Luanda', 'Luanda'), ('Emuhaya', 'Emuhaya'),('Tiriki West','Tiriki West'),('Tiriki East','Tiriki East')], default="")  # Add a default value (empty string)
+    ward = models.CharField(max_length=255, choices=[('Shiru Ward', 'Shiru Ward'), 
+                                                        ('Gisambai Ward', 'Gisambai Ward'), 
+                                                        ('Shamakhokho Ward', 'Shamakhokho Ward'), 
+                                                        ('Banja Ward', 'Banja Ward'), 
+                                                        ('Muhudu Ward', 'Muhudu Ward'), 
+                                                        ('Tambua Ward', 'Tambua Ward'), 
+                                                        ('Jepkoyai Ward', 'Jepkoyai Ward'), 
+                                                        ('Izava-Lyaduywa Ward', 'Izava-Lyaduywa Ward'), 
+                                                        ('West Sabatia Ward', 'West Sabatia Ward'), 
+                                                        ('Chavakali Ward', 'Chavakali Ward'), 
+                                                        ('North Maragoli Ward', 'North Maragoli Ward'), 
+                                                        ('Busali Ward', 'Busali Ward'), 
+                                                        ('Wodanga Ward', 'Wodanga Ward'), 
+                                                        ('Central Bunyore Ward', 'Central Bunyore Ward'), 
+                                                        ('North East Bunyore Ward', 'North East Bunyore Ward'), 
+                                                        ('West Bunyore Ward', 'West Bunyore Ward'), 
+                                                        ('Luanda Township Ward', 'Luanda Township Ward'), 
+                                                        ('Luanda South Ward', 'Luanda South Ward'), 
+                                                        ('Mwibona Ward', 'Mwibona Ward'), 
+                                                        ('Wemilabi Ward', 'Wemilabi Ward'), 
+                                                        ('Emabungo Ward', 'Emabungo Ward'), 
+                                                        ('Mungoma Ward', 'Mungoma Ward'), 
+                                                        ('Central Maragoli Ward', 'Central Maragoli Ward'), 
+                                                        ('Lugaga/Wamuluma Ward', 'Lugaga/Wamuluma Ward'), 
+                                                        ('South Maragoli Ward', 'South Maragoli Ward')])
+    location = models.CharField(max_length=255, default="")  # Add a default value (empty string)
+    sub_location = models.CharField(max_length=255, default="")  # Add a default value (empty string)
+    village = models.CharField(max_length=255, default="")  # Add a default value (empty string)
+      
+
+    members_male = models.PositiveIntegerField(default=0, null=True)
+    members_female = models.PositiveIntegerField(default=0, null= True)
+    total_members_with_disability = models.PositiveIntegerField(default=0)
+
+    members_18_35 = models.PositiveIntegerField(default=0)
+    Name_and_phone_number_of_group_members =  models.TextField(blank=True, null=True)
+    #agrees_to_data_protection = models.BooleanField(default=False)
+    #I_have_read_and_agreed_to_submit_my_information_per_the_data_protection_statement = models.BooleanField(default=False)
+    I_have_agreed_to_data_privacy_terms = models.BooleanField(default=False)
+
+
+
+    def __str__(self):
+        return self.name_of_sport
+
  

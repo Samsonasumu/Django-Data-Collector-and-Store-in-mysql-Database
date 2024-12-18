@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserDetails, GroupDetails
+from .models import UserDetails, GroupDetails, SportsDetails
 from django.forms import ModelForm, TextInput, EmailInput
 
 class UserDetailsForm(forms.ModelForm):
@@ -21,6 +21,13 @@ class UserDetailsForm(forms.ModelForm):
 class GroupDetailsForm(forms.ModelForm):
     class Meta:
         model = GroupDetails
+        fields = '__all__'  # Include all fields from the UserDetails model
+
+
+        
+class SportsDetailsForm(forms.ModelForm):
+    class Meta:
+        model = SportsDetails
         fields = '__all__'  # Include all fields from the UserDetails model
 
 
