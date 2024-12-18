@@ -227,7 +227,7 @@ footer {
     height: 3px; /* Maintain aspect ratio */
     padding-bottom: 0px;
   }
-  
+
   nav a {
       display: block;
       margin-bottom: 10px;
@@ -301,6 +301,7 @@ nav a {
         font-size: 40px; /* Adjust font size for smaller screens */
       }
        
+    
 
       .hom h2 {
         font-size: 35px; /* Adjust font size for smaller screens */
