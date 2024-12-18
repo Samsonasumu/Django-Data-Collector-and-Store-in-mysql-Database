@@ -1,3 +1,10 @@
+
+body {
+  font-family: "Sofia", sans-serif;
+}
+/* navigation.css */
+
+ 
 .image-section {
   display: flex;
   justify-content: space-between;
@@ -12,8 +19,8 @@
 .mission1 {
   padding-top: 30px; 
   text-align: center;
+  
 }   
-
 
 .image-box {
   text-align: center;
@@ -220,8 +227,7 @@ footer {
     height: 3px; /* Maintain aspect ratio */
     padding-bottom: 0px;
   }
-
-
+  
   nav a {
       display: block;
       margin-bottom: 10px;
@@ -234,6 +240,8 @@ nav {
       padding: 10px;
       border-bottom: 1px solid #ccc;
       padding: 10px;
+      justify-content: space-around;
+
 
       justify-content: center;
       text-align: center;
@@ -285,6 +293,8 @@ nav a {
       display: flex;
   
     }
+
+     
 
 @media (max-width: 768px) {
       h1 {

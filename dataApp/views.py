@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import UserDetailsForm, GroupDetailsForm
+from .forms import UserDetailsForm, GroupDetailsForm, SportsDetailsForm
 
 from django.http import HttpResponse
  
@@ -45,6 +45,21 @@ def group_details_view(request):
             form = GroupDetailsForm()
             return render(request, 'dataApp/group_details.html', {'form': form})
      
+def sports_details_view(request):
+        if request.method == 'POST':
+            form = SportsDetailsForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('success')
+
+            else:
+                return render(request, 'dataApp/sport.html', {'form': form})
+        else:
+            form = SportsDetailsForm()
+            return render(request, 'dataApp/sport.html', {'form': form})
+
+
+
 from .models import Image 
  
 def image_slider(request):
