@@ -19,14 +19,17 @@ class UserDetails(models.Model):
 
 
     email = models.EmailField(default="abc@gmail.com", unique=True)
+    #Date_of_Birth = models.DateTimeField(default=datetime(29, 10, 2023))
+        
     Date_of_Birth = models.DateTimeField(default=datetime(2023, 10, 25))
+
     age = models.IntegerField(blank=False, null=True, )
     age_bracket = models.CharField(max_length=100, choices=[('0-15years', '0-15years'),
      ('16-24years', '16-24years'), ('25-34years','25-34years'), ('35-44years','35-44years'), ("44years and above","44years and above")])  
    
     contact = models.CharField(max_length=20, default="+254", unique=True)  # Contact information for doctor
     alternative_contact = models.CharField(max_length=20, default="+254",blank=True)  # Contact information for doctor
-    has_passport = models.CharField(max_length=3, choices=[('yes', 'Yes'), ('no', 'No')])
+    has_a_passport = models.CharField(max_length=3, choices=[('yes', 'Yes'), ('no', 'No')])
 
     
     sub_county = models.CharField(max_length=255, choices=[('Sabatia','Sabatia'), ('Vihiga','Vihiga'),
@@ -162,8 +165,8 @@ class UserDetails(models.Model):
     #relevant_certifications = models.FileField(upload_to='documents/', default="")
 
     Belong_to_Any_Group = models.CharField(max_length=3, choices=[('yes', 'Yes'), ('no', 'No')])
-    group_name = models.CharField(max_length=200)
-    belong_to_two_or_more_groups = models.CharField(max_length=200, default="group B, GROUP C")
+    if_yes_enter_group_name = models.CharField(max_length=200)
+    #belong_to_two_or_more_groups = models.CharField(max_length=200, default="group B, GROUP C")
 
     
     Do_you_have_Any_bussiness = models.CharField(max_length=3, choices=[('yes', 'Yes'), ('no', 'No')])
@@ -203,13 +206,14 @@ class UserDetails(models.Model):
 
 class GroupDetails(models.Model):
     group_name = models.CharField(max_length=100)
-    chairperson = models.CharField(max_length=100, default="")    
+    
+    name_of_chairperson = models.CharField(max_length=100, default="")    
     chairperson_contact = models.CharField(max_length=100, default="")
     chairperson_email = models.EmailField(default="abc@gmail.com")
 
-    secretary = models.CharField(max_length=100, default="")    
-    secretary_contact = models.CharField(max_length=100, default="")
-    secretary_email = models.EmailField(default="abc@gmail.com")
+    name_of_secretary = models.CharField(max_length=100, default="")    
+    contact = models.CharField(max_length=100, default="")
+    email = models.EmailField(default="abc@gmail.com")
 
 
 
@@ -218,7 +222,7 @@ class GroupDetails(models.Model):
 
     main_activity = models.CharField(max_length=255, default="")  # Provide a default value
     any_other_activity = models.CharField(max_length=255, default="", blank=True)  # Provide a default value
-    registration_number = models.CharField(max_length=50, unique=True, default="")  # Assuming unique registration numbers
+    group_registration_number = models.CharField(max_length=50, unique=True, default="")  # Assuming unique registration numbers
     #year_of_registration = models.IntegerField(default="none")  # Set default to current year
     year_of_registration = models.IntegerField(default=2020)  # Set default to current year
     #year_of_registration = models.IntegerField(default=datetime.date.today().year)  # Set default to current year
@@ -349,21 +353,27 @@ class Image(models.Model):
 
 
 class SportsDetails(models.Model):
-    name_of_sport = models.CharField(max_length=50, unique=True, default="")   
-    manager = models.CharField(max_length=100,default="" )
-    manager_contact = models.CharField(max_length=100, default="")
-    manager_email = models.EmailField(default="abc@gmail.com")
-    coach = models.CharField(max_length=100, blank=True)  # Optional coach field
+    name_of_sport_team = models.CharField(max_length=50, unique=True, default="")   
+    
+    team_managers_name = models.CharField(max_length=100,default="" )
+    contact = models.CharField(max_length=100, default="")
+    email = models.EmailField(default="abc@gmail.com")
+
+    team_coach_name = models.CharField(max_length=100,default="" )
+    contact = models.CharField(max_length=100, default="")
+    email = models.EmailField(default="abc@gmail.com")
+
+    type_of_sport = models.CharField(max_length=100, blank=True)  # Optional coach field
     #sport = models.ForeignKey(Sport, on_delete=models.CASCADE)
-    type = models.CharField(max_length=20, choices=(  # Choices for team type (male, female, mixed)
+    gender = models.CharField(max_length=20, choices=(  # Choices for team type (male, female, mixed)
         ('M', 'Male'),
         ('F', 'Female'),
-        ('MX', 'Mixed'),
+        
     ), default="")
-    registration_number = models.CharField(max_length=20, unique=True, default="")
+    team_registration_number = models.CharField(max_length=20, unique=True, default="")
     year_founded = models.PositiveIntegerField(blank=True, default=2021)  # Optional year founded 
     training_ground = models.CharField(max_length=255,default="")
-    number_of_players = models.PositiveIntegerField(default=0)
+    number_of_team_members = models.PositiveIntegerField(default=0)
     #other_activities = models.TextField(blank=True)  # Optional field for additional activities
     sub_county = models.CharField(max_length=255, choices=[('Sabatia','Sabatia'), ('Vihiga','Vihiga'),
      ('Luanda', 'Luanda'), ('Emuhaya', 'Emuhaya'),('Tiriki West','Tiriki West'),('Tiriki East','Tiriki East')], default="")  # Add a default value (empty string)
@@ -397,14 +407,23 @@ class SportsDetails(models.Model):
     village = models.CharField(max_length=255, default="")  # Add a default value (empty string)
       
 
-    members_male = models.PositiveIntegerField(default=0, null=True)
-    members_female = models.PositiveIntegerField(default=0, null= True)
+    #members_male = models.PositiveIntegerField(default=0, null=True)
+    #members_female = models.PositiveIntegerField(default=0, null= True)
     total_members_with_disability = models.PositiveIntegerField(default=0)
+    team_members_age_bracket = models.CharField(max_length=100, choices=[('0-15years', '0-15years'),
+     ('16-24years', '16-24years'), ('25-34years','25-34years'), ('35-44years','35-44years'), 
+     ("44years and above","44years and above")], default="")  
+   
 
-    members_18_35 = models.PositiveIntegerField(default=0)
-    Name_and_phone_number_of_group_members =  models.TextField(blank=True, null=True)
+    members_18_35_yrs = models.PositiveIntegerField(default=0)
+    Name_and_phone_number_of_team_members =  models.TextField(blank=True, null=True)
     #agrees_to_data_protection = models.BooleanField(default=False)
     #I_have_read_and_agreed_to_submit_my_information_per_the_data_protection_statement = models.BooleanField(default=False)
+    level_of_competition = models.CharField(max_length=20, choices=(  # Choices for team type (male, female, mixed)
+        ('N', 'National'),
+        ('R', 'Regional'),
+        ('C', 'County'),
+        ('A', 'Amateure'), ), default="")
     I_have_agreed_to_data_privacy_terms = models.BooleanField(default=False)
 
 
