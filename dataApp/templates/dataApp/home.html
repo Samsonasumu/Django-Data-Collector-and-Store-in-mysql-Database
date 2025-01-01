@@ -8,17 +8,14 @@
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
-
-
- 
 </head>
 
 <body>
     <nav style="  font-family: Audiowide, sans-serif; ">
       <a href="{% url 'home' %}">Home</a>
-      <a href="{% url 'user_details' %}">Youth</a>
+      <a href="{% url 'create_person' %}">Youth</a>
       <a href="{% url 'group_details' %}">Youth Groups</a>
-      <a href="{% url 'home_view_upcoming_programs' %}">Youth Empowerment Programmes</a>
+      <a href="{% url 'upcoming_programs' %}">Youth Empowerment Programmes</a>
       <a href="{% url 'sports_details_view' %}">Sports Team</a>
     </nav>    
 <h1 style="font-family: Sofia, sans-serif; font-size: 30px;"> Directorate of Youth and Sports</h1>
@@ -31,7 +28,8 @@
   <img src="static/images/hom1.jpg"  alt="Image 1">
 </div>
 
-<section class="about100">
+
+<section>
   <h1>ABOUT US</h1>
     <p>The Directorate of youth and sports is domiciled in the Directorate of Gender, Culture, Youth,
        Sports and Social Services. The Directorate is headed by a Chief Officer of Youth and sports. The Directorate 
@@ -43,22 +41,31 @@
    This includes coordinating youth programs, collaborating with NGOs, maintaining a comprehensive youth 
    database, and promoting youth talent, level and youth leadership.
 </p>
-<div class="image-section" >
-    <div class="image-box">
-      <img src="static/images/dep2.jpg" alt="Image 1" style="width: 100%; height: auto;" >
-        <p class="caption">Directorate Leadership with members of Vihiga Youth Service Board during their induction </p>
-    </div>
-    <div class="image-box">
-      <img src="static/images/munyora.jpg" alt="Image 2" style="width: 100%; height: auto;">
-      <p class="caption"><i>From left Mr.Munyora Assistant Director Youth Affairs, Mr.Sylvesters Kaane Chief Officer Youth and Sports and Mr. Bongo Ngoseywe Director Youth and Sports</i></p>
-     </div>
+<div class="card-container">
+        
+  <div class="card">
+      <img src="static/images/dep2.jpg" alt="">
+      <div class="card-content">
+           <p class="caption">Directorate Leadership with members of Vihiga Youth Service Board during their induction </p>
+       </div>
+  </div>
 
-     <div class="image-box">
-      <img src="static/images/mis.jpg" alt="Image 3" style="width: 100%; height:  323px;">
-      <p class="caption"><i>Vice Chairperson, Vihiga Youth Service Board  Miss Glory Kavaya taking oath of office</i></p>
-     </div>
- </div>
+  <div class="card">
+      <img src="static/images/munyora.jpg" alt="">
+      <div class="card-content">
+           <p class="caption"><i>From left Mr.Munyora Assistant Director Youth Affairs, Mr.Sylvesters Kaane Chief Officer Youth and Sports and Mr. Bongo Ngoseywe Director Youth and Sports</i></p>
+       </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/mis.jpg" alt="">
+      <div class="card-content">
+          <p class="caption"><i>Vice Chairperson, Vihiga Youth Service Board  Miss Glory Kavaya taking oath of office</i></p>           
+       </div>
+  </div>
+</div>
 </section>
+
 
 <div class="about-2"> 
     <div class="mission1" style="padding-top: 92px; font-family: Sofia, sans-serif; padding-top: 50px;">   
@@ -135,7 +142,7 @@
 <div class="contribute2">  
   <div class="upcoming">  
     <h1>Upcoming Events</h1>
-     <button id="btn-upcoming"><a href="{% url 'home_view_upcoming_programs' %}">View Upcoming Programs</a>
+     <button id="btn-upcoming"><a href="{% url 'upcoming_programs' %}">View Upcoming Programs</a>
     </button>
   </div>
 </div>

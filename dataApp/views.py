@@ -1,17 +1,15 @@
 from django.shortcuts import render, redirect
-from .forms import UserDetailsForm, GroupDetailsForm, SportsDetailsForm
-
+from .forms import UserDetailsForm, GroupDetailsForm, SportsDetailsForm,PersonForm, BusinessForm
 from django.http import HttpResponse
- 
-from .models import UpcomingProgram
-
+from .models import UpcomingProgram, Person
+      
 def home_view(request):
     return render(request, 'dataApp/home.html')
  
-def home_view_upcoming_programs(request):
+def upcoming_programs(request):
     upcoming_programs = UpcomingProgram.objects.all().order_by('-id')[:4]  # Get latest 4 programs
     context = {'upcoming_programs': upcoming_programs}
-    return render(request, 'dataApp/home_home_view_upcoming_programs.html', context)
+    return render(request, 'dataApp/upcoming_programs.html', context)
  
 def data_protection_statement(request):
   context = {}
@@ -22,10 +20,10 @@ def user_details_view(request):
     if request.method == 'POST':
         form = UserDetailsForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('success')  # Redirect to a success page (create later)
+             form.save()
+             return redirect('success')  # Redirect to a success page (create later)
     else:
-        form = UserDetailsForm()
+         form = UserDetailsForm()
     return render(request, 'dataApp/user_details.html', {'form': form})
 
 def success_view(request):
@@ -58,28 +56,36 @@ def sports_details_view(request):
             form = SportsDetailsForm()
             return render(request, 'dataApp/sport.html', {'form': form})
 
-
-
-from .models import Image 
  
-def image_slider(request):
-    images = Image.objects.all()
-    current_index = 0  # Initialize the current index
+def success(request):
+    # Add content to this view as needed, e.g., a success message or a link
+    return render(request, 'dataApp/success_url.html')  # Render the success te
 
-    if request.method == 'POST':
-        action = request.POST.get('action')
-        if action == 'prev':
-            current_index = max(0, current_index - 1)
-        elif action == 'next':
-            current_index = min(len(images) - 1, current_index + 1)
+ 
+def successbiz(request):
+    pk = 1  # Example pk, this could be dynamically retrieved
+    return render(request, 'dataApp/sucess-biz.html', {'pk': pk})
 
-    current_image = images[current_index]
+def add_business(request, pk):
+  person = Person.objects.get(pk=pk)  # Get the person instance based on ID
+  if request.method == 'POST':
+    form = BusinessForm(request.POST)
+    if form.is_valid():
+      business = form.save(commit=False)  # Don't save yet
+      business.person = person  # Assign the person to the business
+      business.save()
+      return redirect('successbiz')
+  else:
+    form = BusinessForm(initial={'person': person})  # Pre-fill person field
+  return render(request, 'dataApp/add_business.html', {'form': form})
 
-    context = {
-        'current_image': current_image,
-        'images': images,
-        'current_index': current_index,
-    }
 
-    return render(request, 'dataApp/image_slider.html', context)   
-    
+def create_person(request):
+  if request.method == 'POST':
+    form = PersonForm(request.POST)
+    if form.is_valid():
+      person = form.save()  # Save person first and get the instance
+      return redirect('add_business', person.pk)  # Redirect to add_business with person ID
+  else:
+    form = PersonForm()
+  return render(request, 'dataApp/create_person.html', {'form': form})

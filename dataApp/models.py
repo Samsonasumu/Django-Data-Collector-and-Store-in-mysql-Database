@@ -2,11 +2,15 @@ from django.db import models
 from datetime import datetime
 from django.core.validators import MinValueValidator
 
+from ckeditor.fields import RichTextField
 
-class UserDetails(models.Model):
+
+class Person(models.Model):
     First_name = models.CharField(max_length=100)
     Middle_name = models.CharField(max_length=50, default="")
     Last_name = models.CharField(max_length=50, default="")
+    #First_nameLast_name = models.CharField(max_length=50, default="")
+
     national_id_number = models.CharField(max_length=20, unique=True, default="")  # Unique identifier for patient
     gender = models.CharField(max_length=10, choices=(
         ('MALE', 'Male'),
@@ -160,21 +164,73 @@ class UserDetails(models.Model):
     talent = models.CharField(max_length=200)
     occupation = models.CharField(max_length=200)
     name_of_employer = models.CharField(max_length=200)
-
-
     #relevant_certifications = models.FileField(upload_to='documents/', default="")
-
     Belong_to_Any_Group = models.CharField(max_length=3, choices=[('yes', 'Yes'), ('no', 'No')])
     if_yes_enter_group_name = models.CharField(max_length=200)
-    #belong_to_two_or_more_groups = models.CharField(max_length=200, default="group B, GROUP C")
-
-    
+    #belong_to_two_or_more_groups = models.CharField(max_length=200, default="group B, GROUP C")    
     Do_you_have_Any_bussiness = models.CharField(max_length=3, choices=[('yes', 'Yes'), ('no', 'No')])
-    bussiness_name = models.CharField(max_length=200)
-    bussiness_type = models.CharField(max_length=200)
-    other_bussiness_type = models.CharField(max_length=200, default="shoe selling, carpentry")
+    
+    #bussiness_name = models.CharField(max_length=200)
+    #bussiness_type = models.CharField(max_length=200)
+    #other_bussiness_type = models.CharField(max_length=200, default="shoe selling, carpentry")
 
 
+    #BUSINESS_SECTOR_CHOICES = [
+    #('Manufacturing', 'Manufacturing'),
+    #('Construction', 'Construction'),
+    #('Processing', 'Processing'),
+    #('Retail', 'Retail'),
+    #('Wholesale', 'Wholesale'),
+    #('Transportation', 'Transportation'),
+    #('Hospitality', 'Hospitality'),
+#     ('Finance', 'Finance'),
+#     ('Healthcare', 'Healthcare'),
+#     ('Education', 'Education'),
+#     ('Technology', 'Technology'),
+#     ('MPESA', 'MPESA'),
+# ]
+#     business_sector = models.CharField(max_length=255, choices=BUSINESS_SECTOR_CHOICES)
+#     Are_you_registerd = models.CharField(max_length=200, choices=[('yes', 'Yes'), ('no', 'No')])
+#     Registration_number = models.CharField(max_length=200, unique=True)
+#      #a I_have_read_understood_and_agreed_to_submit_my_information_as_per_the_data_protection_statement 
+    #I_have_read_and_agreed_to_submit_my_information_per_the_data_protection_statement = models.BooleanField(default=False)
+    
+    # bsName_regNo_type_location_sector = models.TextField(
+    #     blank=True, 
+    #     null=True, 
+    #     default="""Business Name, Registration Number, Business Type, Location,Business Sector'
+    #     """,
+
+    # )
+    # # ... oth
+ 
+    # business_name1 = models.CharField(max_length=200, blank=True)
+    # business_type1 = models.CharField(max_length=200, blank=True)
+    # location_of_biz1 = models.CharField(max_length=200, blank=True)
+    # registration_number_ofbiz1 = models.CharField(max_length=200, blank=True, unique=True)
+    # monthly_income_bracket1 = models.CharField(max_length=100, choices=[('0-10k', '0-10k'),('10-30k', '10-30k'),
+    # ('30-50k', '30-50k'),('50-100k', '50-100k') ,("100k and above", "100k and above" )])  
+      
+
+    I_have_agreed_to_data_privacy_terms = models.BooleanField(default=False)
+
+
+
+    # Economic activities
+ 
+    def __str__(self):
+        return f"{self.First_name} {self.Last_name}"
+
+class BusinessDetails(models.Model):
+    user = models.OneToOneField(Person, on_delete=models.CASCADE)  # Link to UserDetails
+
+    business_name = models.CharField(max_length=200, blank=True)
+    business_type = models.CharField(max_length=200, blank=True)
+    registration_number = models.CharField(max_length=200, blank=True, unique=True)
+    monthly_income_bracket = models.CharField(max_length=100, choices=[('0-10k', '0-10k'),('10-30k', '10-30k'),
+    ('30-50k', '30-50k'),('50-100k', '50-100k') ,("100k and above", "100k and above" )],default="")  
+    # Add more fields as needed (e.g., business_sector, etc.)
+    
     BUSINESS_SECTOR_CHOICES = [
     ('Manufacturing', 'Manufacturing'),
     ('Construction', 'Construction'),
@@ -188,20 +244,14 @@ class UserDetails(models.Model):
     ('Education', 'Education'),
     ('Technology', 'Technology'),
     ('MPESA', 'MPESA'),
-]
-    business_sector = models.CharField(max_length=255, choices=BUSINESS_SECTOR_CHOICES)
-    Are_you_registerd = models.CharField(max_length=200, choices=[('yes', 'Yes'), ('no', 'No')])
-    Registration_number = models.CharField(max_length=200, unique=True)
-     #a I_have_read_understood_and_agreed_to_submit_my_information_as_per_the_data_protection_statement 
-    #I_have_read_and_agreed_to_submit_my_information_per_the_data_protection_statement = models.BooleanField(default=False)
-    I_have_agreed_to_data_privacy_terms = models.BooleanField(default=False)
+     ('other', 'other'),
+ ]
+    business_sector = models.CharField(max_length=255, choices=BUSINESS_SECTOR_CHOICES, default="")
+    location = models.CharField(max_length=200, blank=True)
 
-
-
-    # Economic activities
- 
+     
     def __str__(self):
-        return self.first_name
+        return f"Business of {self.user.first_name} - {self.business_name}"
 
 
 class GroupDetails(models.Model):
@@ -332,26 +382,53 @@ class GroupDetails(models.Model):
     def __str__(self):
         return self.group_name
 
+class Business(models.Model):
+    # Foreign key to the Person model (a person can have many businesses)
+    your_name = models.ForeignKey(Person, related_name='businesses', on_delete=models.CASCADE)
+    Bussiness_name = models.CharField(max_length=100)  # Name of the business
+    registration_number = models.CharField(max_length=50, unique=True)  # Unique business registration number  
+    monthly_income_bracket = models.CharField(max_length=100, choices=[('0-10k', '0-10k'),('10-30k', '10-30k'),
+    ('30-50k', '30-50k'),('50-100k', '50-100k') ,("100k and above", "100k and above" )],default="")  
+    # Add more fields as needed (e.g., business_sector, etc.)   
+    BUSINESS_SECTOR_CHOICES = [
+    ('Manufacturing', 'Manufacturing'),
+    ('Construction', 'Construction'),
+    ('Processing', 'Processing'),
+    ('Retail', 'Retail'),
+    ('Wholesale', 'Wholesale'),
+    ('Transportation', 'Transportation'),
+    ('Hospitality', 'Hospitality'),
+    ('Finance', 'Finance'),
+    ('Healthcare', 'Healthcare'),
+    ('Education', 'Education'),
+    ('Technology', 'Technology'),
+    ('MPESA', 'MPESA'),
+     ('other', 'other'),
+ ]
+    business_sector = models.CharField(max_length=255, choices=BUSINESS_SECTOR_CHOICES, default="")
+    location_of_bussiness = models.CharField(max_length=200, blank=True)
+ # Rich text field to store HTML content (with tables and other rich formatting)
+    description = RichTextField(blank=True, null=True)  # Rich Text Field for business details
+
+    def __str__(self):
+        return f"{self.name} - {self.registration_number}"
+
 
 from django.utils import timezone
-
+ 
 class UpcomingProgram(models.Model):
+ 
     title = models.CharField(max_length=255)
     description = models.TextField()
-    pdf_file = models.FileField(upload_to='static/', blank=True, null=True)
-    video_url = models.URLField(blank=True, default="")  # Ensure valid URL format
-    photo = models.ImageField(upload_to='static/', blank=True)
     created_at = models.DateTimeField(default=timezone.now)
-       
 
+    pdf_file = models.FileField(upload_to='dataApp/static/', blank=True, null=True)
+    video_url = models.URLField(blank=True, default="")  # Ensure valid URL format
+    photo = models.ImageField(upload_to='dataApp/static/', blank=True)
+     
+    def __str__(self):
+        return f'{self.title} Profile'
  
-class Image(models.Model):
-    image = models.ImageField(upload_to='static/images/')
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    link = models.URLField()
-
-
 class SportsDetails(models.Model):
     name_of_sport_team = models.CharField(max_length=50, unique=True, default="")   
     
@@ -370,6 +447,11 @@ class SportsDetails(models.Model):
         ('F', 'Female'),
         
     ), default="")
+    level_of_competition = models.CharField(max_length=20, choices=(  # Choices for team type (male, female, mixed)
+        ('N', 'National'),
+        ('R', 'Regional'),
+        ('C', 'County'),
+        ('A', 'Amateure'), ), default="")
     team_registration_number = models.CharField(max_length=20, unique=True, default="")
     year_founded = models.PositiveIntegerField(blank=True, default=2021)  # Optional year founded 
     training_ground = models.CharField(max_length=255,default="")
@@ -406,7 +488,6 @@ class SportsDetails(models.Model):
     sub_location = models.CharField(max_length=255, default="")  # Add a default value (empty string)
     village = models.CharField(max_length=255, default="")  # Add a default value (empty string)
       
-
     #members_male = models.PositiveIntegerField(default=0, null=True)
     #members_female = models.PositiveIntegerField(default=0, null= True)
     total_members_with_disability = models.PositiveIntegerField(default=0)
@@ -414,21 +495,15 @@ class SportsDetails(models.Model):
      ('16-24years', '16-24years'), ('25-34years','25-34years'), ('35-44years','35-44years'), 
      ("44years and above","44years and above")], default="")  
    
-
     members_18_35_yrs = models.PositiveIntegerField(default=0)
     Name_and_phone_number_of_team_members =  models.TextField(blank=True, null=True)
     #agrees_to_data_protection = models.BooleanField(default=False)
     #I_have_read_and_agreed_to_submit_my_information_per_the_data_protection_statement = models.BooleanField(default=False)
-    level_of_competition = models.CharField(max_length=20, choices=(  # Choices for team type (male, female, mixed)
-        ('N', 'National'),
-        ('R', 'Regional'),
-        ('C', 'County'),
-        ('A', 'Amateure'), ), default="")
+   
     I_have_agreed_to_data_privacy_terms = models.BooleanField(default=False)
-
-
 
     def __str__(self):
         return self.name_of_sport
 
+ 
  

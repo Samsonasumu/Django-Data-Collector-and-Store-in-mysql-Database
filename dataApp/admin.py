@@ -1,13 +1,20 @@
 from django.contrib import admin
-from . models import UserDetails, GroupDetails, Image, SportsDetails
+from . models import GroupDetails,  UpcomingProgram, SportsDetails, Person, Business
+from django import forms
 
-from .models import UpcomingProgram
+class BusinessForm(forms.ModelForm):
+    # Use CKEditor widget for the description field in the admin
+    description = forms.CharField()
 
-admin.site.register(UpcomingProgram)
- # Register your models here.
-admin.site.register(UserDetails)
+    class Meta:
+        model = Business
+        fields = '__all__'
 
+class BusinessAdmin(admin.ModelAdmin):
+    form = BusinessForm
+
+admin.site.register(Person)
+admin.site.register(Business, BusinessAdmin)
 admin.site.register(GroupDetails)
-admin.site.register(Image)
 admin.site.register(SportsDetails)
-
+admin.site.register(UpcomingProgram)
