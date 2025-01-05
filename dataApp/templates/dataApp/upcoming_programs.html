@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/upcoming1.css' %}">
+</head>
+
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'create_person' %}">Youth</a>
+        <a href="{% url 'group_details' %}">Youth Groups</a>
+    </nav>
+    <h2>Upcoming Programs</h2>
+    <div class="container">
+        <div class="row">
+            {% for program in upcoming_programs %}
+                 
+                  <div class="programs"> 
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ program.title }}</h3>
+                            <p class="card-text">{{ program.description }}</p>
+                            <p class="card-text">{{ program.created_at }}</p>
+                            <!-- <img src="{{ program.photo }}" alt="{{ program.title }}"> -->
+                           
+                            <!-- <img src="{{ program.photo.url }}" alt="{{ program.title }}"> -->
+                            <img src="{{ program.photo.url }}" alt="{{ program.title }}" style="width: 100%; 
+                            height: auto; object-fit: cover;">
+ 
+                            <div class="program-actions">
+                                {% if program.pdf_file %}
+                                    <a href="{{ program.pdf_file.url }}" target="_blank">Download PDF</a>
+                                  {% endif %}
+                                <p>------</p>
+                                
+                               
+                                {% if program.video_url %}
+                                    <a href="{{ program.video_url }}" target="_blank">Watch Video</a>
+                                {% endif %}
+
+                                {% if program.readmore %}
+                                <a href="{{ program.readmore }}" target="_blank">Read More  </a>
+                                {% endif %}
+
+                            </div>
+                            <!-- <a href="" class="btn btn-primary">Read more</a> -->
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>

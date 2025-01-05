@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Person</title>
+  
+  {% load static %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
+   <link rel="stylesheet" href="{% static 'css/group.css' %}">
+
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+<body>
+    <nav style="  font-family: Audiowide, sans-serif; ">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'create_person' %}">Youth</a>
+      <a href="{% url 'group_details' %}">Youth Groups</a>
+      <a href="{% url 'upcoming_programs' %}">Youth Empowerment Programmes</a>
+      <a href="{% url 'sports_details_view' %}">Sports Team</a>
+    </nav>    
+</head>
+<body>
+  <h1> Individual Profilling</h1>
+  <form method="post">
+    {% csrf_token %} 
+    {{ form.as_p }} 
+    <button type="submit">Submit</button>
+  </form>
+
+    
+<button id="show-data-protection" style="background-color: blue; color: white; margin-left: 143px;">Show Data Protection Statement</button>
+<section><h4> Your information is kept secure</h4></section>
+<script>
+  const showButton = document.getElementById('show-data-protection');
+  const popupUrl = "{% url 'data_protection_statement' %}"; // Replace with your URL if using a view function
+  showButton.addEventListener('click', () => {
+    window.open(popupUrl, '_blank'); // This opens the statement in a new tab/window
+  });
+</script>
+
+  <h4>Secure and mobile responsive app </h4>
+  <div style="position: relative; height: 50px; background-color: lightblue;">
+    <div style="position: absolute; bottom: 40px; right: 13px; background-color: yellow;">
+     </div>
+    <footer>
+        &copy; 2024 Vihiga County. All rights reserved.
+      </footer>
+  </div>
+</body>
+</html>
