@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {  
     'default': {  
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'db3',   
+        'NAME': 'db3ba',   
         'USER': 'root',  
         'PASSWORD': 'Sam@36956888',  
         'HOST': '127.0.0.1',  
@@ -130,9 +130,9 @@ USE_TZ = True
 
 MEDIA_URL = '/media/'
 
-STATIC_URL = '/static/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),

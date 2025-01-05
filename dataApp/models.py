@@ -422,13 +422,19 @@ class UpcomingProgram(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
 
-    pdf_file = models.FileField(upload_to='dataApp/static/', blank=True, null=True)
+    pdf_file = models.FileField(upload_to='uploads/pdf/', blank=True, null=True)
     video_url = models.URLField(blank=True, default="")  # Ensure valid URL format
-    photo = models.ImageField(upload_to='dataApp/static/', blank=True)
+    photo = models.ImageField(upload_to='uploads/photos/', blank=True)
+
+    readmore = models.URLField(blank=True, default="")  # Ensure valid URL format
+
      
     def __str__(self):
-        return f'{self.title} Profile'
+        return f'{self.title}'
  
+ 
+
+
 class SportsDetails(models.Model):
     name_of_sport_team = models.CharField(max_length=50, unique=True, default="")   
     

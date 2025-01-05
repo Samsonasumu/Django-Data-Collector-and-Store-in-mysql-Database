@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import GroupDetails,  UpcomingProgram, SportsDetails, Person, Business
+from . models import GroupDetails, UpcomingProgram, SportsDetails, Person, Business
 from django import forms
 
 class BusinessForm(forms.ModelForm):

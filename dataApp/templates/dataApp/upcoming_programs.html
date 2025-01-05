@@ -24,10 +24,12 @@
                             <h3 class="card-title">{{ program.title }}</h3>
                             <p class="card-text">{{ program.description }}</p>
                             <p class="card-text">{{ program.created_at }}</p>
-                            <img src="{{ program.photo }}" alt="{{ program.title }}">
-
+                            <!-- <img src="{{ program.photo }}" alt="{{ program.title }}"> -->
+                           
+                            <!-- <img src="{{ program.photo.url }}" alt="{{ program.title }}"> -->
+                            <img src="{{ program.photo.url }}" alt="{{ program.title }}" style="width: 100%; 
+                            height: auto; object-fit: cover;">
  
-
                             <div class="program-actions">
                                 {% if program.pdf_file %}
                                     <a href="{{ program.pdf_file.url }}" target="_blank">Download PDF</a>
@@ -39,8 +41,12 @@
                                     <a href="{{ program.video_url }}" target="_blank">Watch Video</a>
                                 {% endif %}
 
+                                {% if program.readmore %}
+                                <a href="{{ program.readmore }}" target="_blank">Read More  </a>
+                                {% endif %}
+
                             </div>
-                            <a href="" class="btn btn-primary">Read more</a>
+                            <!-- <a href="" class="btn btn-primary">Read more</a> -->
                     </div>
 
                 </div>
