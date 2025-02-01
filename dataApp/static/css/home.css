@@ -528,25 +528,13 @@ nav a {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
 .card-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
+  margin-bottom: 10px;
+
    
 }
 .card {
@@ -583,4 +571,92 @@ nav a {
   border-radius: 4px;
   margin-top: 16px;
   color: white;
+}
+
+
+
+/* #################### */
+/* Centering the section content */
+.service-delivery-charter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #f4f4f4; /* Optional: Background color */
+  
+  margin-top: 140px;
+  margin-bottom: 140px;
+
+}
+
+/* Centering content inside .container */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: white; /* Optional: Background color for the container */
+  border-radius: 10px; /* Optional: rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
+}
+
+/* Styling for the heading */
+.content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Styling for the paragraph */
+.content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+
+/* Styling for the image */
+.content .image img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  max-width: 900px; /* Limit image width */
+}
+
+ 
+
+/* Ensure the list is also centered */
+.content ul {
+  text-align: center;
+}
+
+
+
+
+@media (max-width: 768px) {
+/* Styling for the paragraph */
+.content p {
+  font-size: 16px;
+  justify-content: center;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Styling for the heading */
+.content h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+
+}
+
+/* Media query for smaller screens (e.g., mobile devices) */
+@media (max-width: 768px) { /* Adjust 768px as needed */
+  .content .image img {
+    max-width: 100%; /* Ensure image takes full width on mobile */
+    height: auto;
+    margin-bottom: 15px; /* Adjust margin as needed */
+  }
 }
