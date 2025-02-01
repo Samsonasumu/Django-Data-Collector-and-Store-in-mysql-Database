@@ -646,7 +646,8 @@ nav a {
 /* Styling for the heading */
 .content h2 {
   font-size: 2rem;
-  margin-bottom: 16px;
+  margin-bottom:  20px;
+  justify-content: center;
 }
 
 
